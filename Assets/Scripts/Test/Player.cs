@@ -272,8 +272,6 @@ public class Player : MonoBehaviour
             timer += Time.deltaTime;
             yield return null;
 
-            
-
             if(timer > 0.3f)
             {
                 break;
