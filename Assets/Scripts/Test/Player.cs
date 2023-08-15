@@ -18,13 +18,14 @@ public class Player : MonoBehaviour
     private float m_strongAttackCoolTime = 0.7f;
     private float m_counterCoolTime = 0.7f;
     private float m_hitCoolTime = 0.5f;
-    private float m_shieldTime = 2.0f;
+    private float m_shieldTime = 1.0f;
     private Color m_playerColor = new Color(1f,1f,1f);
 
     private bool m_isGround = true;
     private bool m_canMove = true;
     private bool m_isCounter = false;
     private bool m_isShield = false;
+    private bool m_isKnockBack = false;
 
     private Rigidbody2D m_rigidbody;
     private Collider2D m_collider;
@@ -137,6 +138,11 @@ public class Player : MonoBehaviour
         m_sword.StopAttack();
         
     }
+
+    public int GetDirection()
+    {
+        return m_dir;
+    }
     #endregion
 
     #region PrivateMethod
@@ -168,24 +174,41 @@ public class Player : MonoBehaviour
         m_isShield = false;
     }
 
+    private void KnockBack(int _dir)
+    {
+        if (m_isKnockBack == true)
+            return;
+
+        m_isKnockBack = true;
+
+        StartCoroutine(ShowWeakKnockBack(_dir));
+        
+    }
+    
     private void OnTriggerStay2D(Collider2D collision)
     {
+        
+
         if (collision.CompareTag("WeakAttack"))
         {
-            if(m_isCounter == true)
+            GameObject hitplayer = collision.GetComponent<PlayerSword>().m_player;
+
+            if (m_isCounter == true)
             {
-                GameObject hitplayer = collision.GetComponent<PlayerSword>().m_player;
                 hitplayer.GetComponent<Player>().CounterHit();
             }
             else
             {
                 Hit();
+                KnockBack(hitplayer.GetComponent<Player>().GetDirection());
             }
             
         }
 
         if (collision.CompareTag("StrongAttack"))
         {
+            GameObject hitplayer = collision.GetComponent<PlayerSword>().m_player;
+
             Hit();
         }
     }
@@ -220,5 +243,34 @@ public class Player : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
         }
     }
+
+    IEnumerator ShowWeakKnockBack(int _dir)
+    {
+        float knockBackSpeed = 15f;
+        Debug.Log("Knockback yes");
+        float timer = 0f;
+        while (true)
+        {
+            transform.Translate(new Vector3(knockBackSpeed * _dir * Time.deltaTime, 0, 0));
+            knockBackSpeed -= 0.1f;
+            timer += Time.deltaTime;
+            yield return null;
+
+            
+
+            if(timer > 0.3f)
+            {
+                break;
+            }
+        }
+        m_isKnockBack = false;
+    }
+
+    IEnumerator ShowStrongKnockBack(int _dir)
+    {
+        yield return null;
+    }
+
+    
     #endregion
 }
