@@ -8,6 +8,7 @@ public class FieldData : MonoBehaviour
 	[HideInInspector] public float width;
 	[HideInInspector] public float height;
 	[HideInInspector] public Vector2 center;
+
 	#endregion
 	#region PrivateVariables
 	#endregion
@@ -17,6 +18,7 @@ public class FieldData : MonoBehaviour
 		width = transform.localScale.x;
 		height = transform.localScale.y;
 		center = transform.position;
+
 	}
 	#endregion
 	#region PublicMethod

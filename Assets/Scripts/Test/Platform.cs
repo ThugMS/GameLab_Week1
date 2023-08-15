@@ -15,8 +15,6 @@ public class Platform : MonoBehaviour
     #endregion
     #region PrivateVariables
 
-    Renderer m_renderer;
-
     enum PlatformType
     {
         Default,
@@ -60,9 +58,6 @@ public class Platform : MonoBehaviour
                 StartCoroutine(DropPaltform(m_delay));
                 break;
         }
-
-        m_renderer = gameObject.GetComponent<Renderer>();
-        m_renderer.material.color = Color.gray;
     }
 
     private void LateUpdate()

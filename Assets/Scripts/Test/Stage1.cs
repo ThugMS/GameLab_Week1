@@ -7,12 +7,18 @@ public class Stage1 : MonoBehaviour
     #region PublicVariables
     #endregion
     #region PrivateVariables
-    Vector3 m_center = Vector3.zero;
+
+    [SerializeField]
+    Vector3 m_startPoint;
+
+    [SerializeField]
+    Vector3 m_platformSize;
 
     enum Direct
     {
-        right,
-        left,
+        Right,
+        Left,
+        Center,
     }
 
     [SerializeField]
@@ -23,10 +29,7 @@ public class Stage1 : MonoBehaviour
 
     [SerializeField]
     float m_size;
-
-    [SerializeField]
-    Vector3 m_platformSize;
-
+    
     [SerializeField]
     float m_quakeRange;
 
@@ -41,16 +44,30 @@ public class Stage1 : MonoBehaviour
     {
         Paltforms = new GameObject { name = "Platforms" };
 
-        MakePlatform(Direct.right);
-        MakePlatform(Direct.left);
+        MakePlatform(Direct.Center, m_startPoint);
+        MakePlatform(Direct.Right, m_startPoint);
+        MakePlatform(Direct.Left, m_startPoint);
 
     }
 
-    void MakePlatform(Direct _direct)
+    void MakePlatform(Direct _direct, Vector3 _startPoint)
     {
-        Vector3 _center = m_center;
         float _time = m_time;
 
+        if (_direct == Direct.Left)
+            _startPoint.x *= -1f;
+
+        if (_direct == Direct.Center)
+        {
+            GameObject prefab = Resources.Load<GameObject>("Prefabs/DefaultPlatform");
+            GameObject go = Instantiate(prefab);
+
+            go.GetComponent<Transform>().localScale = new Vector3(m_startPoint.x * 2, m_platformSize.y, m_platformSize.z);
+            go.GetComponent<Transform>().position = new Vector3(0, m_startPoint.y, m_startPoint.z);
+
+            return;
+        }
+                    
         for (int i = 0; i < m_size; i++)
         {
 
@@ -64,11 +81,16 @@ public class Stage1 : MonoBehaviour
 
             go.GetComponent<Transform>().localScale = m_platformSize;
 
-            go.GetComponent<Transform>().position = _center;
-            if (_direct == Direct.right)
-                _center.x += m_platformSize.x;
-            else if (_direct == Direct.left)
-                _center.x -= m_platformSize.x;
+            if (_direct == Direct.Right)
+            {
+                go.GetComponent<Transform>().position = _startPoint;
+                _startPoint.x += m_platformSize.x;
+            }
+            else if (_direct == Direct.Left)
+            {
+                go.GetComponent<Transform>().position = _startPoint;
+                _startPoint.x -= m_platformSize.x;
+            }
 
             go.GetComponent<Platform>().m_quakeRange = m_quakeRange;
 
