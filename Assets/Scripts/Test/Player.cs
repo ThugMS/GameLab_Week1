@@ -18,13 +18,14 @@ public class Player : MonoBehaviour
     private float m_strongAttackCoolTime = 0.7f;
     private float m_counterCoolTime = 0.7f;
     private float m_hitCoolTime = 0.5f;
-    private float m_shieldTime = 2.0f;
+    private float m_shieldTime = 1.0f;
     private Color m_playerColor = new Color(1f,1f,1f);
 
     private bool m_isGround = true;
     private bool m_canMove = true;
     private bool m_isCounter = false;
     private bool m_isShield = false;
+    private bool m_isKnockBack = false;
 
     private Rigidbody2D m_rigidbody;
     private Collider2D m_collider;
@@ -85,7 +86,6 @@ public class Player : MonoBehaviour
         m_animator.SetTrigger("StrongAttack");
         Invoke("SetMovable", m_strongAttackCoolTime);
         
-
         m_sword.StrongAttack(m_strongAttackCoolTime);
     }
 
@@ -135,7 +135,12 @@ public class Player : MonoBehaviour
         Invoke("SetShieldFalse", m_shieldTime);
 
         m_sword.StopAttack();
-        
+        WeakKnockBack(m_dir * -1);
+    }
+
+    public int GetDirection()
+    {
+        return m_dir;
     }
     #endregion
 
@@ -168,25 +173,60 @@ public class Player : MonoBehaviour
         m_isShield = false;
     }
 
+    private void WeakKnockBack(int _dir)
+    {
+        if (m_isKnockBack == true)
+            return;
+
+        m_isKnockBack = true;
+
+        StartCoroutine(ShowWeakKnockBack(_dir));
+    }
+
+    private void StrongKnockBack(int _dir)
+    {
+        if (m_isKnockBack == true)
+            return;
+
+        m_isKnockBack = true;
+
+        float knockBackSpeed = 13f;
+        float knockBackJump = 5f;
+        float mass = m_rigidbody.mass;
+
+        m_rigidbody.AddForce(Vector3.up * knockBackJump, ForceMode2D.Impulse);
+        m_rigidbody.AddForce(Vector3.right * knockBackSpeed * _dir, ForceMode2D.Impulse);
+        m_rigidbody.drag = 1f;
+
+        StartCoroutine(ShowStrongKnockBack());
+    }
+    
     private void OnTriggerStay2D(Collider2D collision)
     {
+        
+
         if (collision.CompareTag("WeakAttack"))
         {
-            if(m_isCounter == true)
+            GameObject hitplayer = collision.GetComponent<PlayerSword>().m_player;
+
+            if (m_isCounter == true)
             {
-                GameObject hitplayer = collision.GetComponent<PlayerSword>().m_player;
                 hitplayer.GetComponent<Player>().CounterHit();
             }
             else
             {
                 Hit();
+                WeakKnockBack(hitplayer.GetComponent<Player>().GetDirection());
             }
             
         }
 
         if (collision.CompareTag("StrongAttack"))
         {
+            GameObject hitplayer = collision.GetComponent<PlayerSword>().m_player;
+
             Hit();
+            StrongKnockBack(hitplayer.GetComponent<Player>().GetDirection());
         }
     }
 
@@ -220,5 +260,35 @@ public class Player : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
         }
     }
+
+    IEnumerator ShowWeakKnockBack(int _dir)
+    {
+        float knockBackSpeed = 15f;
+        float timer = 0f;
+        while (true)
+        {
+            transform.Translate(new Vector3(Mathf.Abs(knockBackSpeed) * _dir * Time.deltaTime, 0, 0));
+            knockBackSpeed -= 0.1f;
+            timer += Time.deltaTime;
+            yield return null;
+
+            
+
+            if(timer > 0.3f)
+            {
+                break;
+            }
+        }
+        m_isKnockBack = false;
+    }
+
+    IEnumerator ShowStrongKnockBack()
+    {
+        yield return new WaitForSeconds(1.0f);
+
+        m_isKnockBack = false;
+    }
+
+    
     #endregion
 }
