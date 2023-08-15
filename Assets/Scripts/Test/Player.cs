@@ -109,7 +109,7 @@ public class Player : MonoBehaviour
         Invoke("SetMovable", m_hitCoolTime);
         Invoke("SetShieldFalse", m_shieldTime);
 
-        Debug.Log("Hit!");
+        m_sword.StopAttack();
     }
 
     public void CounterHit()
@@ -125,6 +125,8 @@ public class Player : MonoBehaviour
         StartCoroutine(HitChangeBodyColor());
         Invoke("SetMovable", m_hitCoolTime);
         Invoke("SetShieldFalse", m_shieldTime);
+
+        m_sword.StopAttack();
     }
     #endregion
 
