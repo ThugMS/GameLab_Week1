@@ -5,10 +5,19 @@ using UnityEngine;
 public class Platform : MonoBehaviour
 {
     #region PublicVariables
+
+    [SerializeField]
+    public float m_delay;
+
+    [SerializeField]
+    public float m_quakeRange;
+
     #endregion
     #region PrivateVariables
-    
-    public enum PlatformType
+
+    Renderer m_renderer;
+
+    enum PlatformType
     {
         Default,
         Drop,
@@ -20,21 +29,20 @@ public class Platform : MonoBehaviour
     PlatformType m_platformType;
 
     [SerializeField]
-    float m_lifeTime;
-
-    [SerializeField]
     float m_shortenSpeed;
 
     [SerializeField]
     float m_shortenLimit;
 
     [SerializeField]
-    float m_RotateLimit;
-
-    [SerializeField]
     float m_RotateSpeed;
 
+    [SerializeField]
+    float m_RotateLimit;
+
     int m_RotateToggle = 1;
+
+    bool isQuake;
 
     #endregion
     #region PublicMethod
@@ -43,14 +51,18 @@ public class Platform : MonoBehaviour
 
     private void Start()
     {
+        
         gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
 
         switch (m_platformType)
         {
             case PlatformType.Drop:
-                StartCoroutine(DropPaltform(m_lifeTime));
+                StartCoroutine(DropPaltform(m_delay));
                 break;
         }
+
+        m_renderer = gameObject.GetComponent<Renderer>();
+        m_renderer.material.color = Color.gray;
     }
 
     private void LateUpdate()
@@ -58,6 +70,11 @@ public class Platform : MonoBehaviour
 
         switch (m_platformType)
         {
+            case PlatformType.Drop:
+                {
+                    QuakePlatform();
+                }
+                break;
             case PlatformType.Shorten:
                 {
                     if (transform.localScale.x > m_shortenLimit)
@@ -76,15 +93,28 @@ public class Platform : MonoBehaviour
         }
     }
 
-    public IEnumerator DropPaltform(float _lifeTime = -1)
+    private IEnumerator DropPaltform(float _lifeTime = -1)
     {
         if (_lifeTime < 0)
             yield break;
 
         yield return new WaitForSeconds(_lifeTime);
+        isQuake = true;
+
+        yield return new WaitForSeconds(1f);
+        isQuake = false;
         gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         gameObject.GetComponent<Collider2D>().isTrigger = true;
 
+    }
+
+    private void QuakePlatform()
+    {
+        if (isQuake == false)
+            return;
+
+        transform.position += new Vector3(Random.Range(m_quakeRange * -1, m_quakeRange), transform.position.y + Random.Range(m_quakeRange * -1, m_quakeRange), 0) * Time.deltaTime;
+        
     }
 
 
