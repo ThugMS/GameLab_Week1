@@ -55,7 +55,7 @@ public class Stage1 : MonoBehaviour
         float _time = m_time;
 
         if (_direct == Direct.Left)
-            _startPoint *= -1f;
+            _startPoint.x *= -1f;
 
         if (_direct == Direct.Center)
         {
@@ -63,6 +63,8 @@ public class Stage1 : MonoBehaviour
             GameObject go = Instantiate(prefab);
 
             go.GetComponent<Transform>().localScale = new Vector3(m_startPoint.x * 2, m_platformSize.y, m_platformSize.z);
+            go.GetComponent<Transform>().position = new Vector3(0, m_startPoint.y, m_startPoint.z);
+
             return;
         }
                     
