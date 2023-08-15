@@ -13,6 +13,7 @@ public class CameraController : MonoBehaviour
 
 	[SerializeField] private FieldData m_field;
 	[SerializeField] private GameObject m_player1;
+
     [SerializeField] private GameObject m_player2;
 	[SerializeField] private List<Parallax> parallaxes = new List<Parallax>();
 
@@ -50,6 +51,7 @@ public class CameraController : MonoBehaviour
     {
 		main.orthographicSize = GetCameraZoomLevel();
 		Vector2 destination = GetCameraDestination();
+
 		transform.position = Vector3.Lerp(transform.position, destination, Time.deltaTime * m_camSpeed);
 		foreach(Parallax p in parallaxes)
 		{
@@ -66,6 +68,7 @@ public class CameraController : MonoBehaviour
 		float limitYMax = fieldCenter.y + m_field.height / 2;
 		centerPosition.x = Mathf.Clamp(centerPosition.x, limitXMin + m_camX, limitXMax - m_camX);
 		centerPosition.y = Mathf.Clamp(centerPosition.y, limitYMin + m_camY, limitYMax - m_camY);
+
 		Vector3 result = new Vector3(centerPosition.x, centerPosition.y, -10);
 		return result;
     }
