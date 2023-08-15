@@ -9,6 +9,7 @@ public class PlayerSword : MonoBehaviour
     #endregion
 
     #region PrivateVariables
+    private bool isHit = false;
     #endregion
 
     #region PublicMethod
@@ -23,6 +24,14 @@ public class PlayerSword : MonoBehaviour
         Invoke("SetSwordTagStrongAttack", _strongAttackCoolTime / 3 * 2);
         Invoke("SetSwordTagNormal", _strongAttackCoolTime);
     }
+
+    public void StopAttack()
+    {
+        SetSwordTagNormal();
+        isHit = true;
+
+        Invoke("ResetIsHit", 1f);
+    }
     #endregion
 
     #region PrivateMethod
@@ -33,12 +42,29 @@ public class PlayerSword : MonoBehaviour
 
     private void SetSwordTagWeakAttack()
     {
+        if (isHit == true)
+        {
+            isHit = false;
+            return;
+        }
+
         transform.tag = "WeakAttack";
     }
 
     private void SetSwordTagStrongAttack()
     {
+        if (isHit == true)
+        {
+            isHit = false;
+            return;
+        }
+
         transform.tag = "StrongAttack";
+    }
+
+    private void ResetIsHit()
+    {
+        isHit = false;
     }
     #endregion
 }

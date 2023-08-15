@@ -15,6 +15,10 @@ public class CameraController : MonoBehaviour
 	[SerializeField] private GameObject m_player1;
 
     [SerializeField] private GameObject m_player2;
+	[SerializeField] private List<Parallax> parallaxes = new List<Parallax>();
+
+	private float m_camX => main.orthographicSize * ((float)Screen.width / Screen.height);
+	private float m_camY => main.orthographicSize;
 
 	private float m_camX => main.orthographicSize * ((float)Screen.width / Screen.height);
 	private float m_camY => main.orthographicSize;
@@ -26,6 +30,10 @@ public class CameraController : MonoBehaviour
 	public void Start()
 	{
 		shaker.main = this.main;
+		foreach(Parallax p in parallaxes)
+		{
+			p.SetFieldData(m_field);
+		}
 	}
 	public void Update()
     {
@@ -48,12 +56,17 @@ public class CameraController : MonoBehaviour
 		Vector2 destination = GetCameraDestination();
 
 		transform.position = Vector3.Lerp(transform.position, destination, Time.deltaTime * m_camSpeed);
+		foreach(Parallax p in parallaxes)
+		{
+			p.ParallaxMove(main.transform.position);
+		}
 	}
     private Vector3 GetCameraDestination()
     {
 		Vector3 centerPosition = Vector3.Lerp(m_player1.transform.position, m_player2.transform.position, 0.5f);
 
-		Vector2 fieldCenter = m_field.transform.position;
+		Vector2 fieldCenter = m_field.center;
+
 		float limitXMin = fieldCenter.x - m_field.width / 2;
 		float limitXMax = fieldCenter.x + m_field.width / 2;
 		float limitYMin = fieldCenter.y - m_field.height / 2;
