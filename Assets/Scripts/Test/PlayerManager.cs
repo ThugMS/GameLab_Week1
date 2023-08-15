@@ -23,6 +23,13 @@ public class PlayerManager : MonoBehaviour
     }
     void Update()
     {
+        PlayerInput();
+    }
+    #endregion
+
+    #region PrivateMethod
+    private void PlayerInput()
+    {
         //Player1 Action
         if (Input.GetKey(KeyCode.A))
         {
@@ -35,6 +42,18 @@ public class PlayerManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W))
         {
             m_player1Controller.Jump();
+        }
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            m_player1Controller.WeakAttack();
+        }
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            m_player1Controller.StrongAttack();
+        }
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            m_player1Controller.Counter();
         }
 
         //Player2 Action
@@ -50,10 +69,18 @@ public class PlayerManager : MonoBehaviour
         {
             m_player2Controller.Jump();
         }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            m_player2Controller.WeakAttack();
+        }
+        if (Input.GetKeyDown(KeyCode.Semicolon))
+        {
+            m_player2Controller.StrongAttack();
+        }
+        if (Input.GetKeyDown(KeyCode.Quote))
+        {
+            m_player2Controller.Counter();
+        }
     }
-    #endregion
-
-    #region PublicMethod
-
     #endregion
 }
