@@ -7,11 +7,6 @@ public class Indicator : MonoBehaviour
     #region PublicVariables
     #endregion
     #region PrivateVariables
-    #endregion
-    #region PublicMethod
-    #endregion
-    #region PrivateMethod
-    #endregion
 
     Vector2 m_screenDir;
     float m_defaultAngle;
@@ -30,6 +25,10 @@ public class Indicator : MonoBehaviour
     [SerializeField]
     float m_offset;
 
+    #endregion
+    #region PublicMethod
+    #endregion
+    #region PrivateMethod
 
     private void Start()
     {
@@ -88,14 +87,15 @@ public class Indicator : MonoBehaviour
 
             m_posY = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width * 0.5f, 0)).y * -1;
             m_posX = (m_player1.transform.position.x * m_posY) / m_player1.transform.position.y;
-            
+
             m_indicator1.transform.position = new Vector3(m_posX, m_posY - m_offset, -1);
         }
 
         m_indicator1.SetActive(m_isActive);
 
-        //Transform tran = m_indicator1.transform.FindChild("arrow");
-        //tran.RotateAround(m_indicator1.transform.position, Vector3.forward, 10);
+        Transform tran = m_indicator1.transform.Find("arrow");
+        tran.RotateAround(m_indicator1.transform.position, Vector3.forward, 10);
     }
 
+    #endregion
 }
