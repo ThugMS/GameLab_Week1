@@ -202,6 +202,8 @@ public class Player : MonoBehaviour
         StartCoroutine(ShowBodyShield());
     }
 
+
+
     IEnumerator ShowBodyShield()
     {
         int cnt = 0;
