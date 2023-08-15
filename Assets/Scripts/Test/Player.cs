@@ -77,7 +77,11 @@ public class Player : MonoBehaviour
 
     public void StrongAttack()
     {
+        if (m_canMove == false)
+            return;
+
         m_canMove = false;
+        //m_animator.SetBool("StrongAttack", true);
         m_animator.SetTrigger("StrongAttack");
         Invoke("SetMovable", m_strongAttackCoolTime);
         
@@ -87,6 +91,9 @@ public class Player : MonoBehaviour
 
     public void Counter()
     {
+        if (m_canMove == false)
+            return;
+
         m_canMove = false;
         m_isCounter = true;
 
@@ -205,7 +212,6 @@ public class Player : MonoBehaviour
         {
             m_playerColor.a += mul;
             mul *= -1;
-            Debug.Log(m_playerColor.a);
             m_body.GetComponent<SpriteRenderer>().color = m_playerColor;
             cnt++;
 
