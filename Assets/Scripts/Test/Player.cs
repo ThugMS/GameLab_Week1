@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     private float m_counterCoolTime = 0.7f;
     private float m_hitCoolTime = 0.5f;
     private float m_shieldTime = 2.0f;
-    private Color m_hitColor = new Color(255, 132, 132);
+    private Color m_playerColor = new Color(1f,1f,1f);
 
     private bool m_isGround = true;
     private bool m_canMove = true;
@@ -110,6 +110,7 @@ public class Player : MonoBehaviour
         Invoke("SetShieldFalse", m_shieldTime);
 
         m_sword.StopAttack();
+        
     }
 
     public void CounterHit()
@@ -127,6 +128,7 @@ public class Player : MonoBehaviour
         Invoke("SetShieldFalse", m_shieldTime);
 
         m_sword.StopAttack();
+        
     }
     #endregion
 
@@ -184,9 +186,31 @@ public class Player : MonoBehaviour
     IEnumerator HitChangeBodyColor()
     {
         m_body.GetComponent<SpriteRenderer>().color = new Color(1f, 132f/255f, 132f/255f);
+        m_playerColor = new Color(1f, 132f / 255f, 132f / 255f);
         yield return new WaitForSeconds(0.1f);
 
         m_body.GetComponent<SpriteRenderer>().color = Color.white;
+        m_playerColor = Color.white;
+
+        StartCoroutine(ShowBodyShield());
+    }
+
+    IEnumerator ShowBodyShield()
+    {
+        int cnt = 0;
+        int limit = 6;
+        float mul = -0.5f;
+
+        while (cnt < limit)
+        {
+            m_playerColor.a += mul;
+            mul *= -1;
+            Debug.Log(m_playerColor.a);
+            m_body.GetComponent<SpriteRenderer>().color = m_playerColor;
+            cnt++;
+
+            yield return new WaitForSeconds(0.2f);
+        }
     }
     #endregion
 }
