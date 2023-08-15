@@ -30,11 +30,11 @@ public class IndicatorManager : MonoBehaviour
 		{
 			if (IsObjectInScreen(m_targets[i]) == true)
 			{
-				m_indicators[i].Deactivate();
+				//m_indicators[i].Deactivate();
 			}
 			else
 			{
-				m_indicators[i].Activate();
+				//m_indicators[i].Activate();
 			}
 		}
 	}
