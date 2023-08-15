@@ -20,9 +20,6 @@ public class CameraController : MonoBehaviour
 	private float m_camX => main.orthographicSize * ((float)Screen.width / Screen.height);
 	private float m_camY => main.orthographicSize;
 
-	private float m_camX => main.orthographicSize * ((float)Screen.width / Screen.height);
-	private float m_camY => main.orthographicSize;
-
 	private const float ZOOM_MIN = 4f;
 	private const float ZOOM_MAX = 10f;
 	#endregion
