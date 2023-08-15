@@ -13,6 +13,9 @@ public class CameraController : MonoBehaviour
     [SerializeField] private GameObject m_field;
     [SerializeField] private GameObject m_player1;
     [SerializeField] private GameObject m_player2;
+
+	private const float ZOOM_MIN = 4f;
+	private const float ZOOM_MAX = 10f;
     #endregion
     #region PublicMethod
     public void Update()
@@ -41,8 +44,8 @@ public class CameraController : MonoBehaviour
     }
     private float GetCameraZoomLevel()
     {
-        float result = 4f;
         float distance = Vector2.Distance(m_player1.transform.position, m_player2.transform.position);
+		float result = Mathf.Clamp(ZOOM_MIN + distance / 4, ZOOM_MIN, ZOOM_MAX);
         return result;
     }
     #endregion
