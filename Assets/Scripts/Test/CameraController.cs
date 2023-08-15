@@ -69,7 +69,9 @@ public class CameraController : MonoBehaviour
     private Vector3 GetCameraDestination()
     {
 		Vector3 centerPosition = Vector3.Lerp(m_player1.transform.position, m_player2.transform.position, 0.5f);
+
 		Vector2 fieldCenter = m_field.center;
+
 		float limitXMin = fieldCenter.x - m_field.width / 2;
 		float limitXMax = fieldCenter.x + m_field.width / 2;
 		float limitYMin = fieldCenter.y - m_field.height / 2;
