@@ -11,8 +11,12 @@ public class CameraController : MonoBehaviour
     #region PrivateVariables
     [SerializeField] private float m_camSpeed;
 
-    [SerializeField] private GameObject m_player1;
+	[SerializeField] private FieldData m_field;
+	[SerializeField] private GameObject m_player1;
     [SerializeField] private GameObject m_player2;
+
+	private float m_camX => main.orthographicSize * ((float)Screen.width / Screen.height);
+	private float m_camY => main.orthographicSize;
 
 	private const float ZOOM_MIN = 4f;
 	private const float ZOOM_MAX = 10f;
@@ -39,13 +43,20 @@ public class CameraController : MonoBehaviour
     #region PrivateMethod
     private void SetCameraState()
     {
-		Vector2 destination = GetCameraDestination();
 		main.orthographicSize = GetCameraZoomLevel();
+		Vector2 destination = GetCameraDestination();
 		transform.position = Vector3.Lerp(transform.position, destination, Time.deltaTime * m_camSpeed);
 	}
     private Vector3 GetCameraDestination()
     {
 		Vector3 centerPosition = Vector3.Lerp(m_player1.transform.position, m_player2.transform.position, 0.5f);
+		Vector2 fieldCenter = m_field.transform.position;
+		float limitXMin = fieldCenter.x - m_field.width / 2;
+		float limitXMax = fieldCenter.x + m_field.width / 2;
+		float limitYMin = fieldCenter.y - m_field.height / 2;
+		float limitYMax = fieldCenter.y + m_field.height / 2;
+		centerPosition.x = Mathf.Clamp(centerPosition.x, limitXMin + m_camX, limitXMax - m_camX);
+		centerPosition.y = Mathf.Clamp(centerPosition.y, limitYMin + m_camY, limitYMax - m_camY);
 		Vector3 result = new Vector3(centerPosition.x, centerPosition.y, -10);
 		return result;
     }
