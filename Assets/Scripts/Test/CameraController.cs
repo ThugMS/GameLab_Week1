@@ -6,47 +6,54 @@ public class CameraController : MonoBehaviour
 {
     #region PublicVariables
     public Camera main;
+	public CameraShaker shaker;
     #endregion
     #region PrivateVariables
     [SerializeField] private float m_camSpeed;
 
-    [SerializeField] private GameObject m_field;
     [SerializeField] private GameObject m_player1;
     [SerializeField] private GameObject m_player2;
 
 	private const float ZOOM_MIN = 4f;
 	private const float ZOOM_MAX = 10f;
-    #endregion
-    #region PublicMethod
-    public void Update()
+	#endregion
+	#region PublicMethod
+	public void Start()
+	{
+		shaker.main = this.main;
+	}
+	public void Update()
     {
         SetCameraState();
     }
-    
-    public void ShakeCamera()
-    {
-		
-    }
+
+	public void AttackShake()
+	{
+		shaker.AttackShake();
+	}
+	public void SmashShake()
+	{
+		shaker.SmashShake();
+	}
     #endregion
     #region PrivateMethod
     private void SetCameraState()
     {
-        transform.position = GetCameraPosition();
-        main.orthographicSize = GetCameraZoomLevel();
-    }
-    private Vector3 GetCameraPosition()
+		Vector2 destination = GetCameraDestination();
+		main.orthographicSize = GetCameraZoomLevel();
+		transform.position = Vector3.Lerp(transform.position, destination, Time.deltaTime * m_camSpeed);
+	}
+    private Vector3 GetCameraDestination()
     {
 		Vector3 centerPosition = Vector3.Lerp(m_player1.transform.position, m_player2.transform.position, 0.5f);
-		float clampX = Mathf.Clamp(centerPosition.x, 0, 100);
-		float clampY = Mathf.Clamp(centerPosition.y, 0, 100);
-		Vector3 result = new Vector3(clampX, clampY, -10);
-        return result;
+		Vector3 result = new Vector3(centerPosition.x, centerPosition.y, -10);
+		return result;
     }
     private float GetCameraZoomLevel()
     {
-        float distance = Vector2.Distance(m_player1.transform.position, m_player2.transform.position);
+		float distance = Vector2.Distance(m_player1.transform.position, m_player2.transform.position);
 		float result = Mathf.Clamp(ZOOM_MIN + distance / 4, ZOOM_MIN, ZOOM_MAX);
-        return result;
-    }
+		return result;
+	}
     #endregion
 }
