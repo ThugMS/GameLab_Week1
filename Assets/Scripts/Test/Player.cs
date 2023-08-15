@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
 
     public void WeakAttack()
     {
-
+        
     }
 
     public void StrongAttack()
