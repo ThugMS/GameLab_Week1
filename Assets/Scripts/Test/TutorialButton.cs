@@ -7,13 +7,20 @@ public class TutorialButton : MonoBehaviour
 	#region PublicVariables
 	#endregion
 	#region PrivateVariables
-	[SerializeField] KeyCode m_keycode;
+	[SerializeField] TutorialRoom m_room;
+
 	[SerializeField] Animator m_animator;
+
 	#endregion
 	#region PublicMethod
+	public void OnEnable()
+	{
+		Initialize();
+	}
 	public void Check()
 	{
 		m_animator.SetBool("check", true);
+		m_room.ButtonChecked();
 	}
 	public void Initialize()
 	{
