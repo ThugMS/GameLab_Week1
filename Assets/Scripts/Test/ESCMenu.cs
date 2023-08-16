@@ -12,7 +12,6 @@ public class ESCMenu : MonoBehaviour
     [SerializeField] private GameObject m_escPanel;
     [SerializeField] private GameObject m_stagePanel;
 
-    private bool m_isESC = false;
     #endregion
 
     #region PublicMethod
