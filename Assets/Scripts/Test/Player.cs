@@ -42,6 +42,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Animator m_counterEffect;
 	[SerializeField] private UIHeartContainer m_heartContainer;
     [SerializeField] private ParticleSystem m_hitParticle;
+    [SerializeField] private ParticleSystem m_smashParticle;
+    [SerializeField] private Revival m_revival;
     #endregion
 
     #region PublicMethod
@@ -191,6 +193,8 @@ public class Player : MonoBehaviour
         Invoke("SetMovable", m_hitCoolTime);
         Invoke("SetShieldFalse", m_shieldTime);
         CameraController.instance.AttackShake();
+        m_hitParticle.transform.position = transform.position;
+        m_hitParticle.Play();
 
         m_sword.StopAttack();
         WeakKnockBack(m_dir * -1);
@@ -204,6 +208,7 @@ public class Player : MonoBehaviour
 	public void Dead()
 	{
 		m_heartContainer.Pop();
+		m_revival.Revive();
 	}
     #endregion
 
@@ -307,9 +312,12 @@ public class Player : MonoBehaviour
             if (m_isShield == false)
             {
                 EffectManager.instance.CallEffect(EffectManager.EEffectType.smash, collision.transform.position, hitplayer.transform.localScale.x);
-
+                m_smashParticle.transform.position = collision.transform.position;
+                m_smashParticle.Play();
             }
+
             Hit();
+
             CameraController.instance.SmashShake();
 
             
