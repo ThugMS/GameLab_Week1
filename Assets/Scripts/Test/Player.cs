@@ -233,7 +233,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             m_isGround = true;
-        }
+        }   
     }
 
     private void SetMovable()
