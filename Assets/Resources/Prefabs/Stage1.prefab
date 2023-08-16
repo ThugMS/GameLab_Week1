@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_startPoint: {x: 4, y: -3, z: 0}
   m_platformSize: {x: 5, y: 2, z: 1}
-  m_time: 40
+  m_time: 30
   m_interval: 7
   m_size: 4
   m_quakeRange: 3

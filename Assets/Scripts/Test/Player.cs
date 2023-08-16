@@ -209,8 +209,8 @@ public class Player : MonoBehaviour
 
 	public void Dead()
 	{
-		m_heartContainer.Pop();
-		m_revival.Revive();
+		if(m_heartContainer.PopAndReturnRevivalPossibility() == true)
+			m_revival.Revive();
 	}
     #endregion
 

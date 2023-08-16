@@ -22,14 +22,16 @@ public class UIHeartContainer : MonoBehaviour
 			heart.Initialize();
 		}
 	}
-	public void Pop()
+	public bool PopAndReturnRevivalPossibility()
 	{
 		m_hearts[index].Pop();
 		++index;
 		if(index >= m_hearts.Count)
 		{
 			HeartCountOut();
+			return false;
 		}
+		return true;
 	}
 	#endregion
 
