@@ -15,6 +15,22 @@ public class Revival : MonoBehaviour
 
     #endregion
     #region PublicMethod
+	public void Revive()
+	{
+		for (int i = 0; i < m_tryCounter; i++)
+		{
+			transform.position = Vector3.up * 10 + Vector3.right * Random.Range(-m_randomRange, m_randomRange);
+
+			Debug.DrawRay(transform.position, Vector2.down * m_maxDistance, Color.green, 0.3f);
+			if (Physics2D.Raycast(transform.position, Vector2.down, m_maxDistance, LayerMask.GetMask("Ground")))
+			{
+				gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+				return;
+			}
+		}
+		transform.position = Vector3.up * m_spawnPosY;
+		gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+	}
     #endregion
     #region PrivateMethod
 
@@ -31,20 +47,6 @@ public class Revival : MonoBehaviour
         }
     }
 	*/
-    private bool FindSpawnPos(Collider2D _other)
-    {
-        for (int i = 0; i < m_tryCounter; i++)
-        {
-            transform.position = _other.transform.position + Vector3.up * 20 + Vector3.right * Random.Range(-m_randomRange, m_randomRange);
-
-            Debug.DrawRay(transform.position, Vector2.down * m_maxDistance, Color.green, 0.3f);
-            if (Physics2D.Raycast(transform.position, Vector2.down, m_maxDistance, LayerMask.GetMask("Ground")))
-                return true; 
-        }
-        return false;
-    }
-
-
     #endregion
 
 
