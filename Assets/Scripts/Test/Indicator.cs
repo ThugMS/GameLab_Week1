@@ -142,7 +142,7 @@ public class Indicator : MonoBehaviour
 		#endregion
 
 		GameObject dirObject = _indicator.transform.Find("direction").gameObject;
-		Debug.Log(dirObject);
+
 		Vector2 direction = GetPlayerDirection(_player, _indicator.transform);
 		DirectionTowardsPlayer(dirObject, direction);
 
