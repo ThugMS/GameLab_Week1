@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_delay: 0
-  m_quakeRange: 1
+  m_quakeRange: 3
   m_platformType: 1
   m_shortenSpeed: 0
   m_shortenLimit: 0
