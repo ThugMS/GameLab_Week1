@@ -50,7 +50,12 @@ public class TutorialRoom : MonoBehaviour
 			button.Initialize();
 		}
 		m_floor.SetActive(false);
+		Invoke("RegeneratePlatform", 3f);
 		m_stageTrigger.StartStage();
     }
+	private void RegeneratePlatform()
+	{
+		m_floor.SetActive(true);
+	}
 	#endregion
 }
