@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stage1 : MonoBehaviour
+public class Stage1 : BaseStage
 {
     #region PublicVariables
     #endregion
@@ -43,16 +43,7 @@ public class Stage1 : MonoBehaviour
     #endregion
     #region PrivateMethod
 
-    //private void Start()
-    //{
-    //    Platforms = new GameObject { name = "Platforms" };
-
-    //    MakePlatform(Direct.Center, m_startPoint);
-    //    MakePlatform(Direct.Right, m_startPoint);
-    //    MakePlatform(Direct.Left, m_startPoint);
-    //}
-
-    public void StageStart()
+    public override void StageStart()
     {
         Platforms = new GameObject { name = "Platforms" };
 

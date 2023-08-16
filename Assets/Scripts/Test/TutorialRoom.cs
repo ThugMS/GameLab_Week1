@@ -13,7 +13,7 @@ public class TutorialRoom : MonoBehaviour
 	[SerializeField] private GameObject m_floor;
 
 	[SerializeField] private List<TutorialButton> m_buttons = new List<TutorialButton>();
-	[SerializeField] private Stage1 m_stageTrigger;
+	[SerializeField] private BaseStage m_stageTrigger;
 	[SerializeField] private int m_count = 0;
 	#endregion
 	#region PublicMethod
