@@ -134,6 +134,7 @@ public class Player : MonoBehaviour
         StartCoroutine(HitChangeBodyColor());
         Invoke("SetMovable", m_hitCoolTime);
         Invoke("SetShieldFalse", m_shieldTime);
+        CameraController.instance.AttackShake();
 
         m_sword.StopAttack();
         WeakKnockBack(m_dir * -1);
@@ -218,6 +219,8 @@ public class Player : MonoBehaviour
             else
             {
                 Hit();
+                CameraController.instance.AttackShake();
+
                 WeakKnockBack(hitplayer.GetComponent<Player>().GetDirection());
             }
             
@@ -228,6 +231,8 @@ public class Player : MonoBehaviour
             GameObject hitplayer = collision.GetComponent<PlayerSword>().m_player;
 
             Hit();
+            CameraController.instance.SmashShake();
+
             StrongKnockBack(hitplayer.GetComponent<Player>().GetDirection());
         }
     }
