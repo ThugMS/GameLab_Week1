@@ -141,7 +141,23 @@ public class Indicator : MonoBehaviour
 
 		#endregion
 
-        _indicator.SetActive(m_isActive);
+		GameObject dirObject = _indicator.transform.Find("direction").gameObject;
+		Debug.Log(dirObject);
+		Vector2 direction = GetPlayerDirection(_player, _indicator.transform);
+		DirectionTowardsPlayer(dirObject, direction);
+
+		_indicator.SetActive(m_isActive);
     }
 
+	private Vector2 GetPlayerDirection(Transform _player, Transform _indicator)
+	{
+		return new Vector2(_player.position.x - _indicator.position.x, _player.position.y - _indicator.position.y);
+	}
+	private void DirectionTowardsPlayer(GameObject _indicatorDirection, Vector2 direction)
+	{
+		float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+		Quaternion angleAxis = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
+		Quaternion rotation = Quaternion.Slerp(_indicatorDirection.transform.rotation, angleAxis, 5 * Time.deltaTime);
+		_indicatorDirection.transform.localRotation = rotation;
+	}
 }
