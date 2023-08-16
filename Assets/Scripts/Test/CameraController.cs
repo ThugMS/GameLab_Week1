@@ -10,7 +10,7 @@ public class CameraController : MonoBehaviour
 	#endregion
 	#region PrivateVariables
 	[SerializeField] private float m_camSpeed;
-	[SerializeField] private FieldData m_field;
+	[SerializeField] private FieldData m_currentField;
 	[SerializeField] private GameObject m_player1;
 	[SerializeField] private GameObject m_player2;
 	[SerializeField] private List<Parallax> m_parallaxes = new List<Parallax>();
@@ -18,6 +18,8 @@ public class CameraController : MonoBehaviour
 	private float m_camY => main.orthographicSize;
 	private const float ZOOM_MIN = 4f;
 	private const float ZOOM_MAX = 10f;
+	[SerializeField] private FieldData m_tutorialRoomFieldData;
+	[SerializeField] private FieldData m_mainStageFieldData;
 	#endregion
 	#region PublicMethod
 	public void Awake()
@@ -30,10 +32,6 @@ public class CameraController : MonoBehaviour
 	public void Start()
 	{
 		shaker.main = this.main;
-		foreach (Parallax p in m_parallaxes)
-		{
-			p.SetFieldData(m_field);
-		}
 	}
 	public void Update()
 	{
@@ -41,11 +39,7 @@ public class CameraController : MonoBehaviour
 	}
 	public void SetFieldData(FieldData _data)
 	{
-		m_field = _data;
-		foreach (Parallax p in m_parallaxes)
-		{
-			p.SetFieldData(m_field);
-		}
+		m_currentField = _data;
 	}
 	public void AttackShake()
 	{
@@ -54,6 +48,14 @@ public class CameraController : MonoBehaviour
 	public void SmashShake()
 	{
 		shaker.SmashShake();
+	}
+	public void GoTutorialRoom()
+	{
+		m_currentField = m_tutorialRoomFieldData;
+	}
+	public void GoMainStage()
+	{
+		m_currentField = m_mainStageFieldData;
 	}
 	#endregion
 	#region PrivateMethod
@@ -70,11 +72,11 @@ public class CameraController : MonoBehaviour
 	private Vector3 GetCameraDestination()
 	{
 		Vector3 centerPosition = Vector3.Lerp(m_player1.transform.position, m_player2.transform.position, 0.5f);
-		Vector2 fieldCenter = m_field.center;
-		float limitXMin = fieldCenter.x - m_field.width / 2;
-		float limitXMax = fieldCenter.x + m_field.width / 2;
-		float limitYMin = fieldCenter.y - m_field.height / 2;
-		float limitYMax = fieldCenter.y + m_field.height / 2;
+		Vector2 fieldCenter = m_currentField.center;
+		float limitXMin = fieldCenter.x - m_currentField.width / 2;
+		float limitXMax = fieldCenter.x + m_currentField.width / 2;
+		float limitYMin = fieldCenter.y - m_currentField.height / 2;
+		float limitYMax = fieldCenter.y + m_currentField.height / 2;
 		centerPosition.x = Mathf.Clamp(centerPosition.x, limitXMin + m_camX, limitXMax - m_camX);
 		centerPosition.y = Mathf.Clamp(centerPosition.y, limitYMin + m_camY, limitYMax - m_camY);
 		Vector3 result = new Vector3(centerPosition.x, centerPosition.y, -10);
