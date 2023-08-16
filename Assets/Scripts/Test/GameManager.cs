@@ -30,7 +30,6 @@ public class GameManager : MonoBehaviour
 	public void GameStart()
 	{
 		onGameStart.Invoke();
-		Debug.Log("call");
 	}
 	public void GameEnd()
 	{

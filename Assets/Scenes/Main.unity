@@ -2560,7 +2560,7 @@ PrefabInstance:
     - target: {fileID: 2496289993865173491, guid: 67191fcec67e1de4cb2f18e2e2fcba1e, type: 3}
       propertyPath: m_stageTrigger
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 981641865}
     - target: {fileID: 3261668766882075263, guid: 67191fcec67e1de4cb2f18e2e2fcba1e, type: 3}
       propertyPath: m_Name
       value: Start Set
