@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class IndicatorManager : MonoBehaviour
 {
+	/*
 	#region PublicVariables
 	#endregion
 	#region PrivateVariables
@@ -51,4 +52,5 @@ public class IndicatorManager : MonoBehaviour
 		return false;
 	}
 	#endregion
+	*/
 }
