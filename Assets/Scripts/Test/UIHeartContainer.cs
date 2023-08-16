@@ -14,10 +14,6 @@ public class UIHeartContainer : MonoBehaviour
 	#endregion
 
 	#region PublicMethod
-	public void Start()
-	{
-		Initialize();
-	}
 	public void Initialize()
 	{
 		index = 0;
