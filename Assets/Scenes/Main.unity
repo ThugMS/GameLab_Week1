@@ -1175,6 +1175,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Heart UI
       objectReference: {fileID: 0}
+    - target: {fileID: 207996858360885811, guid: c85fbcd638189e840bac9d440a1e2cb0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2961488412923104182, guid: c85fbcd638189e840bac9d440a1e2cb0, type: 3}
       propertyPath: xAxisMult
       value: -0.55
