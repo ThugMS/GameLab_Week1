@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_animator
       value: 
       objectReference: {fileID: 766659719}
+    - target: {fileID: 4499776349497693643, guid: e629b16ad16c253409a1aae16aa08517, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5295662629142493850, guid: e629b16ad16c253409a1aae16aa08517, type: 3}
       propertyPath: m_Name
       value: Player1
@@ -473,8 +477,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2006543730}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.4172, y: -2.9546, z: 0}
-  m_LocalScale: {x: 7.5344, y: 0.8892, z: 1}
+  m_LocalPosition: {x: 2.8159, y: -3.2506, z: 0}
+  m_LocalScale: {x: 78.06, y: 1.4811404, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

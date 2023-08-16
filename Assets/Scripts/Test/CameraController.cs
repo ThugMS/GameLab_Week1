@@ -15,7 +15,7 @@ public class CameraController : MonoBehaviour
 	[SerializeField] private GameObject m_player1;
 
     [SerializeField] private GameObject m_player2;
-	[SerializeField] private List<Parallax> parallaxes = new List<Parallax>();
+	[SerializeField] private List<Parallax> m_parallaxes = new List<Parallax>();
 
 	private float m_camX => main.orthographicSize * ((float)Screen.width / Screen.height);
 	private float m_camY => main.orthographicSize;
@@ -27,7 +27,7 @@ public class CameraController : MonoBehaviour
 	public void Start()
 	{
 		shaker.main = this.main;
-		foreach(Parallax p in parallaxes)
+		foreach(Parallax p in m_parallaxes)
 		{
 			p.SetFieldData(m_field);
 		}
@@ -37,6 +37,14 @@ public class CameraController : MonoBehaviour
         SetCameraState();
     }
 
+	public void SetFieldData(FieldData _data)
+	{
+		m_field = _data;
+		foreach (Parallax p in m_parallaxes)
+		{
+			p.SetFieldData(m_field);
+		}
+	}
 	public void AttackShake()
 	{
 		shaker.AttackShake();
@@ -53,7 +61,7 @@ public class CameraController : MonoBehaviour
 		Vector2 destination = GetCameraDestination();
 
 		transform.position = Vector3.Lerp(transform.position, destination, Time.deltaTime * m_camSpeed);
-		foreach(Parallax p in parallaxes)
+		foreach(Parallax p in m_parallaxes)
 		{
 			p.ParallaxMove(main.transform.position);
 		}
