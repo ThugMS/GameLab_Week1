@@ -10,13 +10,15 @@ public class GameManager : MonoBehaviour
 	public UnityEvent onGameTutorial;
 	public UnityEvent onGameStart;
 	public UnityEvent onGameEnd;
-	#endregion
+	public UnityEvent onMainScreen;
+    public UnityEvent offMainScreen;
+    #endregion
 
-	#region PrivateVariables
-	#endregion
+    #region PrivateVariables
+    #endregion
 
-	#region PublicMethod
-	public void Awake()
+    #region PublicMethod
+    public void Awake()
 	{
 		if (instance == null)
 			instance = this;
@@ -33,8 +35,18 @@ public class GameManager : MonoBehaviour
 	{
 		onGameEnd.Invoke();
 	}
-	#endregion
 
-	#region PrivateMethod
-	#endregion
+	public void OnMainScreen()
+	{
+		onMainScreen.Invoke();
+	}
+
+    public void OffMainScreen()
+    {
+        offMainScreen.Invoke();
+    }
+    #endregion
+
+    #region PrivateMethod
+    #endregion
 }
