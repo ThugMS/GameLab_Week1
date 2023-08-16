@@ -78,7 +78,6 @@ public class Stage1 : BaseStage
             _time -= m_interval;
 			if (_time <= 0)
 			{
-				Debug.Log("sh");
 				Destroy(go);
 				return;
 			}
