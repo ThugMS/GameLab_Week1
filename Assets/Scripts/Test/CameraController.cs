@@ -47,6 +47,7 @@ public class CameraController : MonoBehaviour
 	{
 		m_chasePlayer = false;
 		transform.position = Vector2.zero;
+		main.orthographicSize = 6f;
 	}
 	public void SetFieldData(FieldData _data)
 	{
