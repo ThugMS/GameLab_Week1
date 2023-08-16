@@ -30,6 +30,10 @@ public class UIHeartContainer : MonoBehaviour
 	{
 		m_hearts[index].Pop();
 		++index;
+		if(index >= m_hearts.Count)
+		{
+			HeartCountOut();
+		}
 	}
 	#endregion
 
