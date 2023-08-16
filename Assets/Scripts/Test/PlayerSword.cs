@@ -28,14 +28,14 @@ public class PlayerSword : MonoBehaviour
 
     public void WeakAttack(float _weakAttackCoolTime)
     {
-        Invoke("SetSwordTagWeakAttack", _weakAttackCoolTime / 5 * 2);
-        Invoke("SetSwordTagNormal", _weakAttackCoolTime / 5 * 3);
+        Invoke("SetSwordTagWeakAttack", _weakAttackCoolTime / 3 * 1);
+        Invoke("SetSwordTagNormal", _weakAttackCoolTime / 2 * 1);
     }
 
     public void StrongAttack(float _strongAttackCoolTime)
     {
-        Invoke("SetSwordTagStrongAttack", _strongAttackCoolTime / 3 * 2);
-        Invoke("SetSwordTagNormal", _strongAttackCoolTime);
+        Invoke("SetSwordTagStrongAttack", _strongAttackCoolTime / 12 * 6);
+        Invoke("SetSwordTagNormal", _strongAttackCoolTime / 12 * 9);
     }
 
     public void StopAttack()
