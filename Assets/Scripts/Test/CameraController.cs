@@ -46,6 +46,7 @@ public class CameraController : MonoBehaviour
 	public void PlayerChasingEnd()
 	{
 		m_chasePlayer = false;
+		transform.position = Vector2.zero;
 	}
 	public void SetFieldData(FieldData _data)
 	{
