@@ -1480,9 +1480,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1270084460}
     - target: {fileID: 8314198716589988438, guid: 738e1c0eb173a6348a25a94083d188c7, type: 3}
+      propertyPath: m_currentField
+      value: 
+      objectReference: {fileID: 1406527520294220809}
+    - target: {fileID: 8314198716589988438, guid: 738e1c0eb173a6348a25a94083d188c7, type: 3}
+      propertyPath: m_mainStageFieldData
+      value: 
+      objectReference: {fileID: 1959071358}
+    - target: {fileID: 8314198716589988438, guid: 738e1c0eb173a6348a25a94083d188c7, type: 3}
       propertyPath: m_parallaxes.Array.size
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 8314198716589988438, guid: 738e1c0eb173a6348a25a94083d188c7, type: 3}
+      propertyPath: m_tutorialRoomFieldData
+      value: 
+      objectReference: {fileID: 1406527520294220809}
     - target: {fileID: 8314198716589988438, guid: 738e1c0eb173a6348a25a94083d188c7, type: 3}
       propertyPath: parallaxes.Array.data[0]
       value: 
