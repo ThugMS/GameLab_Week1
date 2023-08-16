@@ -96,7 +96,7 @@ public class Platform : MonoBehaviour
         yield return new WaitForSeconds(_lifeTime);
         isQuake = true;
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         isQuake = false;
         gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         gameObject.GetComponent<Collider2D>().isTrigger = true;
@@ -108,8 +108,7 @@ public class Platform : MonoBehaviour
         if (isQuake == false)
             return;
 
-        transform.position += new Vector3(Random.Range(m_quakeRange * -1, m_quakeRange), transform.position.y + Random.Range(m_quakeRange * -1, m_quakeRange), 0) * Time.deltaTime;
-        
+        transform.position += new Vector3(Random.Range(m_quakeRange * -1, m_quakeRange), Random.Range(m_quakeRange * -1, m_quakeRange), 0) * Time.deltaTime;
     }
 
 
