@@ -32,6 +32,9 @@ public class TutorialRoom : MonoBehaviour
 	}
 	public void ButtonChecked()
 	{
+		if (PlayerManager.instance.isTutorialPlayed == false)
+			return;
+
 		++m_count;
 		if(m_count >= m_buttons.Count)
 		{

@@ -9,6 +9,8 @@ public class PlayerManager : MonoBehaviour
 
     public GameObject m_player1;
     public GameObject m_player2;
+
+    public bool isTutorialPlayed = false;
     #endregion
 
     #region PrivateVariables

@@ -396,6 +396,7 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
 
         m_isKnockBack = false;
+        m_rigidbody.drag = 0f;
     }
 
     
