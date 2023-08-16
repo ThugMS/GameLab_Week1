@@ -8,6 +8,7 @@ public class TutorialRoom : MonoBehaviour
 	#region PublicVariables
 	#endregion
 	#region PrivateVariables
+
 	[SerializeField] private FieldData m_field;
 	[SerializeField] private GameObject m_floor;
 
@@ -41,6 +42,7 @@ public class TutorialRoom : MonoBehaviour
 	#region PrivateMethod
 	private void TutorialEnd()
 	{
+
 		CameraController.instance.SetFieldData(m_field);
 		m_floor.SetActive(false);
 	}
