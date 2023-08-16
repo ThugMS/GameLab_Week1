@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class MainScreen : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class MainScreen : MonoBehaviour
 
     #region PrivateVariables
     [SerializeField] private GameObject m_stagePanel;
+    [SerializeField] private TextMeshPro m_textMeshPro;
     #endregion
 
     #region PublicMethod
@@ -23,6 +25,8 @@ public class MainScreen : MonoBehaviour
         {
             m_stagePanel.SetActive(true);    
         }
+
+
     }
     public void HideMainScreen()
     {
