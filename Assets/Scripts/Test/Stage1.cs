@@ -22,20 +22,15 @@ public class Stage1 : BaseStage
         Center,
     }
 
-    [SerializeField]
-    float m_time;
+    [SerializeField] float m_time;
 
-    [SerializeField]
-    float m_interval;
+    [SerializeField] float m_interval;
 
-    [SerializeField]
-    float m_size;
+    [SerializeField] float m_size;
     
-    [SerializeField]
-    float m_quakeRange;
+    [SerializeField] float m_quakeRange;
 
-    [SerializeField]
-    float m_quakeTime;
+    [SerializeField] float m_quakeTime;
 
     GameObject Platforms;
 
