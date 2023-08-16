@@ -12,6 +12,8 @@ public class Platform : MonoBehaviour
     [SerializeField]
     public float m_quakeRange;
 
+    [SerializeField] public float m_quakeTime;
+
     #endregion
     #region PrivateVariables
 
@@ -96,7 +98,6 @@ public class Platform : MonoBehaviour
         yield return new WaitForSeconds(_lifeTime);
         isQuake = true;
 
-        yield return new WaitForSeconds(2f);
         isQuake = false;
         gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         gameObject.GetComponent<Collider2D>().isTrigger = true;
@@ -111,6 +112,12 @@ public class Platform : MonoBehaviour
         transform.position += new Vector3(Random.Range(m_quakeRange * -1, m_quakeRange), Random.Range(m_quakeRange * -1, m_quakeRange), 0) * Time.deltaTime;
     }
 
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("DeadLine"))
+            Destroy(gameObject);
+    }
 
     #endregion
 }
