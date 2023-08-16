@@ -76,8 +76,12 @@ public class Stage1 : BaseStage
 
             go.GetComponent<Platform>().m_delay = _time;
             _time -= m_interval;
-            if (_time < 0)
-                return;
+			if (_time <= 0)
+			{
+				Debug.Log("sh");
+				Destroy(go);
+				return;
+			}
 
             go.GetComponent<Transform>().localScale = m_platformSize;
 
