@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    #region PublicVariables
+	#region PublicVariables
+	public static CameraController instance;
     public Camera main;
 	public CameraShaker shaker;
     #endregion
@@ -24,6 +25,13 @@ public class CameraController : MonoBehaviour
 	private const float ZOOM_MAX = 10f;
 	#endregion
 	#region PublicMethod
+	public void Awake()
+	{
+		if (instance == null)
+		{
+			instance = this;
+		}
+	}
 	public void Start()
 	{
 		shaker.main = this.main;
