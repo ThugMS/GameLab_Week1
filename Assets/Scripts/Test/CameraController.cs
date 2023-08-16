@@ -20,6 +20,7 @@ public class CameraController : MonoBehaviour
 	private const float ZOOM_MAX = 10f;
 	[SerializeField] private FieldData m_tutorialRoomFieldData;
 	[SerializeField] private FieldData m_mainStageFieldData;
+	[SerializeField] private bool m_chasePlayer = false;
 	#endregion
 	#region PublicMethod
 	public void Awake()
@@ -35,7 +36,16 @@ public class CameraController : MonoBehaviour
 	}
 	public void Update()
 	{
-		SetCameraState();
+		if(m_chasePlayer == true)
+			SetCameraState();
+	}
+	public void PlayerChasingStart()
+	{
+		m_chasePlayer = true;
+	}
+	public void PlayerChasingEnd()
+	{
+		m_chasePlayer = false;
 	}
 	public void SetFieldData(FieldData _data)
 	{

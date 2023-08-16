@@ -801,6 +801,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b42304c5dc779f643b4fe6e5972f3fab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onGameTutorial:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1960017505}
+        m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
+        m_MethodName: GoTutorialRoom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1960017505}
+        m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
+        m_MethodName: PlayerChasingStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onGameStart:
     m_PersistentCalls:
       m_Calls:
@@ -828,12 +855,48 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1960017505}
+        m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
+        m_MethodName: GoMainStage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1960017505}
+        m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
+        m_MethodName: PlayerChasingStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onGameEnd:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8314198716016649640}
         m_TargetAssemblyTypeName: SnowController, Assembly-CSharp
         m_MethodName: StopSnow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1960017505}
+        m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
+        m_MethodName: PlayerChasingEnd
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -932,6 +995,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93dfc1e0826c94742a5cae886ca999e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1960017505 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8314198716589988438, guid: 738e1c0eb173a6348a25a94083d188c7, type: 3}
+  m_PrefabInstance: {fileID: 8314198716016649639}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd2a57d237a672e4d98620fc98f743fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1964464481
@@ -1482,7 +1556,7 @@ PrefabInstance:
     - target: {fileID: 8314198716589988438, guid: 738e1c0eb173a6348a25a94083d188c7, type: 3}
       propertyPath: m_currentField
       value: 
-      objectReference: {fileID: 1406527520294220809}
+      objectReference: {fileID: 0}
     - target: {fileID: 8314198716589988438, guid: 738e1c0eb173a6348a25a94083d188c7, type: 3}
       propertyPath: m_mainStageFieldData
       value: 
