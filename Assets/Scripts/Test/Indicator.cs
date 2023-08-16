@@ -121,14 +121,12 @@ public class Indicator : MonoBehaviour
         else
             m_isActive = false;
 
-        #endregion
-
+		#endregion
 
         _indicator.SetActive(m_isActive);
 
         //Transform tran = _indicator.transform.Find("arrow");
         //tran.RotateAround(_indicator.transform.position, Vector3.forward, 10);
     }
-
     #endregion
 }
