@@ -14,9 +14,9 @@ public class StageMenu : MonoBehaviour
     [SerializeField] Vector3 m_playerPos2 = new Vector3(5f, 5f, 0);
 
     [SerializeField] private GameObject m_stagePanel;
-    [SerializeField] private GameObject m_stage1;
-    [SerializeField] private GameObject m_stage2;
-    [SerializeField] private GameObject m_stage3;
+    [SerializeField] private BaseStage m_stage1;
+    [SerializeField] private BaseStage m_stage2;
+    [SerializeField] private BaseStage m_stage3;
 
     #endregion
 

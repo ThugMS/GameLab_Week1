@@ -759,6 +759,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b42304c5dc779f643b4fe6e5972f3fab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onGameTutorial:
+    m_PersistentCalls:
+      m_Calls: []
   onGameStart:
     m_PersistentCalls:
       m_Calls:
