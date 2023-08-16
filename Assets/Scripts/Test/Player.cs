@@ -13,6 +13,9 @@ public class Player : MonoBehaviour
 {
     #region PublicVariables
     public List<TutorialButton> m_tutorialKeyInput = new List<TutorialButton>();
+    public int m_life = 5;
+
+    public bool m_isDead = false;
     #endregion
 
     #region PrivateVariables
@@ -24,6 +27,7 @@ public class Player : MonoBehaviour
     private float m_counterCoolTime = 0.7f;
     private float m_hitCoolTime = 0.667f;
     private float m_shieldTime = 0.3f;
+    
     private Color m_playerColor = new Color(1f,1f,1f);
 
     private bool m_isGround = true;
@@ -32,6 +36,7 @@ public class Player : MonoBehaviour
     private bool m_isShield = false;
     private bool m_isKnockBack = false;
     private bool m_isWeakAttack = false;
+    
 
     private Rigidbody2D m_rigidbody;
     private Collider2D m_collider;
@@ -209,6 +214,14 @@ public class Player : MonoBehaviour
 
 	public void Dead()
 	{
+        m_life--;
+
+        if (m_life <= 0)
+        {
+            m_isDead = true;
+            m_life = 5;
+        }
+
 		if(m_heartContainer.PopAndReturnRevivalPossibility() == true)
 			m_revival.Revive();
 	}

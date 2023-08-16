@@ -12,13 +12,15 @@ public class GameManager : MonoBehaviour
 	public UnityEvent onGameEnd;
 	public UnityEvent onMainScreen;
     public UnityEvent offMainScreen;
-	#endregion
+	public UnityEvent onVictoryScreen;
+    public UnityEvent offVictoryScreen;
+    #endregion
 
-	#region PrivateVariables
-	#endregion
+    #region PrivateVariables
+    #endregion
 
-	#region PublicMethod
-	public void Awake()
+    #region PublicMethod
+    public void Awake()
 	{
 		if (instance == null)
 			instance = this;
@@ -34,7 +36,7 @@ public class GameManager : MonoBehaviour
 	public void GameEnd()
 	{
 		onGameEnd.Invoke();
-        onMainScreen.Invoke();
+        onVictoryScreen.Invoke();
     }
 
 	public void OnMainScreen()
@@ -46,6 +48,17 @@ public class GameManager : MonoBehaviour
     {
         offMainScreen.Invoke();
     }
+
+	public void OnVictoryScreen()
+	{
+		onVictoryScreen.Invoke();
+    }
+
+	public void OffVictoryScreen()
+	{
+		offVictoryScreen.Invoke();
+		onMainScreen.Invoke();
+	}
     #endregion
 
     #region PrivateMethod
