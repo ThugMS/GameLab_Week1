@@ -10,6 +10,9 @@ public class ESCMenu : MonoBehaviour
 
     #region PrivateVariables
     [SerializeField] private GameObject m_escPanel;
+    [SerializeField] private GameObject m_stagePanel;
+
+    private bool m_isESC = false;
     #endregion
 
     #region PublicMethod
@@ -23,7 +26,11 @@ public class ESCMenu : MonoBehaviour
         if(g_pause == true)
         {
             Time.timeScale = 0f;
-            m_escPanel.SetActive(true);
+            if (m_escPanel.activeSelf == false && m_stagePanel.activeSelf == false)
+            {
+                m_escPanel.SetActive(true);
+            }
+
         }
         else
         {
@@ -44,6 +51,13 @@ public class ESCMenu : MonoBehaviour
         #else
         Application.Quit();
         #endif
+    }
+
+    public void StageButton()
+    {
+        m_escPanel.SetActive(false);
+
+        m_stagePanel.SetActive(true);
     }
 #endregion
 

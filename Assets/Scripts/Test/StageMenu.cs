@@ -29,6 +29,8 @@ public class StageMenu : MonoBehaviour
     {
         GameManager.instance.TutorialStart();
         HideStagePanel();
+        CallHideMainScreen();
+        RunTimeScale();
     }
 
     public void ChooseStage1()
@@ -37,6 +39,8 @@ public class StageMenu : MonoBehaviour
         SpawnPlayers();
         GameManager.instance.GameStart();
         HideStagePanel();
+        CallHideMainScreen();
+        RunTimeScale();
     }
 
     public void ChooseStage2()
@@ -45,6 +49,8 @@ public class StageMenu : MonoBehaviour
         SpawnPlayers();
         GameManager.instance.GameStart();
         HideStagePanel();
+        CallHideMainScreen();
+        RunTimeScale();
     }
 
     public void ChooseStage3()
@@ -53,6 +59,8 @@ public class StageMenu : MonoBehaviour
         SpawnPlayers();
         GameManager.instance.GameStart();
         HideStagePanel();
+        CallHideMainScreen();
+        RunTimeScale();
     }
 
     private void SpawnPlayers()
@@ -66,6 +74,16 @@ public class StageMenu : MonoBehaviour
         m_stagePanel.SetActive(false);
     }
 
+    public void CallHideMainScreen()
+    {
+        GameManager.instance.OffMainScreen();
+    }
+
+
+    public void RunTimeScale()
+    {
+        ESCMenu.g_pause = false;
+    }
     #endregion
 
 
