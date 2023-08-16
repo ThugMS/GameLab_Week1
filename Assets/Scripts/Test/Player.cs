@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
     private bool m_isCounter = false;
     private bool m_isShield = false;
     private bool m_isKnockBack = false;
+    private bool m_isWeakAttack = false;
 
     private Rigidbody2D m_rigidbody;
     private Collider2D m_collider;
@@ -96,7 +97,13 @@ public class Player : MonoBehaviour
     }
 
     public void WeakAttack()
-    { 
+    {
+        if (m_isWeakAttack == true || m_canMove == false)
+        {
+            return;
+        }
+
+        m_isWeakAttack = true;
         m_animator.SetTrigger("WeakAttack");
 
         m_sword.WeakAttack(m_weakAttackCoolTime);
@@ -109,11 +116,13 @@ public class Player : MonoBehaviour
         {
             m_tutorialKeyInput[(int)TutorialInput.LinkAttack].Check();
         }
+
+        Invoke("SetIsWeakAttack", m_weakAttackCoolTime);
     }
 
     public void StrongAttack()
     {
-        if (m_canMove == false)
+        if (m_canMove == false || m_isWeakAttack == true)
             return;
 
         m_canMove = false;
@@ -213,6 +222,11 @@ public class Player : MonoBehaviour
     private void ResetSwordTag()
     {
         m_sword.tag = "Normal";
+    }
+
+    private void SetIsWeakAttack()
+    {
+        m_isWeakAttack = false;
     }
 
     private void SetShieldFalse()

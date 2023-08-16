@@ -18,7 +18,7 @@ public class PlayerManager : MonoBehaviour
 
     #region PublicMethod
     void Start()
-    {
+    {   
         m_player1Controller = m_player1.GetComponent<Player>();
         m_player2Controller = m_player2.GetComponent<Player>();
 
@@ -33,7 +33,12 @@ public class PlayerManager : MonoBehaviour
 
     #region PrivateMethod
     private void PlayerInput()
-    {
+    {   
+        if(ESCMenu.g_pause == true)
+        {
+            return;
+        }
+
         //Player1 Action
         if (Input.GetKey(KeyCode.A))
         {
