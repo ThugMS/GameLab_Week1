@@ -10,6 +10,7 @@ public class PlayerManager : MonoBehaviour
     #region PrivateVariables
     [SerializeField] private GameObject m_player1;
     [SerializeField] private GameObject m_player2;
+    [SerializeField] private List<TutorialButton> m_keyName = new List<TutorialButton>();
 
     private Player m_player1Controller;
     private Player m_player2Controller;
@@ -20,6 +21,8 @@ public class PlayerManager : MonoBehaviour
     {
         m_player1Controller = m_player1.GetComponent<Player>();
         m_player2Controller = m_player2.GetComponent<Player>();
+
+        
     }
     void Update()
     {
@@ -81,6 +84,11 @@ public class PlayerManager : MonoBehaviour
         {
             m_player2Controller.Counter();
         }
+    }
+
+    private void AddTutorialKey(int _index, int _range)
+    {
+        ;
     }
     #endregion
 }
