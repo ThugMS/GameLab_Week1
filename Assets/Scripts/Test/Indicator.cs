@@ -11,6 +11,7 @@ public class Indicator : MonoBehaviour
     Vector2 m_screenDir;
     float m_defaultAngle;
 
+    [SerializeField] Transform m_camera;
     [SerializeField] Transform m_player1;
     [SerializeField] Transform m_player2;
 
@@ -25,6 +26,8 @@ public class Indicator : MonoBehaviour
     [SerializeField]
     float m_offset;
 
+    float m_cameraBound = 0.5f;
+
     #endregion
     #region PublicMethod
     #endregion
@@ -32,8 +35,7 @@ public class Indicator : MonoBehaviour
 
     private void Start()
     {
-        m_screenDir = new Vector2(Screen.width, Screen.height);
-        m_defaultAngle = Vector2.Angle(Vector2.up, m_screenDir);
+       
     }
 
     private void Update()
@@ -44,58 +46,83 @@ public class Indicator : MonoBehaviour
 
     private void IndicatePlayer(Transform _player, GameObject _indicator)
     {
-        float angle = Vector2.Angle(Vector2.up, transform.position - _player.position);
-        int sign = _player.transform.position.x < 0 ? -1 : 1;
-        angle *= sign;
-
         Vector3 targetPoint = Camera.main.WorldToViewportPoint(_player.position);
-        Vector2 centerPoint = new Vector2(targetPoint.x - 0.5f, targetPoint.y - 0.5f);
+        Vector3 carmeraToTarget = targetPoint - Camera.main.WorldToViewportPoint(m_camera.position);
 
 
-        if (-m_defaultAngle <= angle && angle <= m_defaultAngle)
+        #region 최신버전
+
+        if (m_cameraBound <= carmeraToTarget.y)
         {
-            //Debug.Log("down");
+            //Debug.Log($"up {carmeraToTarget.y}");
 
-            m_isActive = centerPoint.y < -0.5f ? true : false;
+            m_isActive = true;
 
-            m_posY = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width * 0.5f, 0)).y;
-            m_posX = (_player.transform.position.x * m_posY) / _player.transform.position.y;
+            m_posY = m_cameraBound;
+            m_posX = (carmeraToTarget.x * m_posY) / carmeraToTarget.y;
 
-            _indicator.transform.position = new Vector3(m_posX, m_posY + m_offset, -1);
+            //if (m_cameraBound <= carmeraToTarget.x)
+            //{
+            //    _indicator.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(1f, 1f, 0));
+            //    _indicator.transform.position += new Vector3(-1, -1, 0) * m_offset;
+            //}
+            //else if (-m_cameraBound >= carmeraToTarget.x)
+            //{
+            //    _indicator.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(-1f, 1f, 0));
+            //    _indicator.transform.position += new Vector3(1, -1, 0) * m_offset;
+            //}
+            //else
+            //{
+                _indicator.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(m_posX + m_cameraBound, m_posY + m_cameraBound, 0));
+                _indicator.transform.position += Vector3.down * m_offset;
+            //}
+
+            _indicator.transform.position = new Vector3(_indicator.transform.position.x, _indicator.transform.position.y, 0);
         }
-        else if (m_defaultAngle <= angle && angle <= 180 - m_defaultAngle)
+        else if (-m_cameraBound >= carmeraToTarget.y)
         {
-            //Debug.Log("right");
+            // Debug.Log($"down {centerPoint.y}");
 
-            m_isActive = centerPoint.x > 0.5f ? true : false;
+            m_isActive = true;
 
-            m_posX = Camera.main.ScreenToWorldPoint(new Vector2(0, Screen.height * 0.5f)).x * -1;
-            m_posY = (_player.transform.position.y * m_posX) / _player.transform.position.x;
+            m_posY = -m_cameraBound;
+            m_posX = (carmeraToTarget.x * m_posY) / carmeraToTarget.y;
 
-            _indicator.transform.position = new Vector3(m_posX - m_offset, m_posY, -1);
+            _indicator.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(m_posX + m_cameraBound, m_posY + m_cameraBound, 0));
+            _indicator.transform.position += Vector3.up * m_offset;
+            _indicator.transform.position = new Vector3(_indicator.transform.position.x, _indicator.transform.position.y, 0);
         }
-        else if (-180 + m_defaultAngle <= angle && angle <= -m_defaultAngle)
+        else if (m_cameraBound <= carmeraToTarget.x)
         {
-            //Debug.Log("left");
+            //Debug.Log($"right {centerPoint.y}");
 
-            m_isActive = centerPoint.x < -0.5f ? true : false;
+            m_isActive = true;
 
-            m_posX = Camera.main.ScreenToWorldPoint(new Vector2(0, Screen.height * 0.5f)).x;
-            m_posY = (_player.transform.position.y * m_posX) / _player.transform.position.x;
+            m_posX = m_cameraBound;
+            m_posY = (carmeraToTarget.y * m_posX) / carmeraToTarget.x;
 
-            _indicator.transform.position = new Vector3(m_posX + m_offset, m_posY, -1);
+            _indicator.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(m_posX + m_cameraBound, m_posY + m_cameraBound, 0));
+            _indicator.transform.position += Vector3.left * m_offset;
+            _indicator.transform.position = new Vector3(_indicator.transform.position.x, _indicator.transform.position.y, 0);
         }
-        else if (-180 <= angle && angle <= -180 + m_defaultAngle || 180 - m_defaultAngle <= angle && angle <= 180)
+        else if (-m_cameraBound >= carmeraToTarget.x)
         {
-            //Debug.Log("up");
+            //Debug.Log($"left {centerPoint.y}");
 
-            m_isActive = centerPoint.y > 0.5f ? true : false;
+            m_isActive = true;
 
-            m_posY = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width * 0.5f, 0)).y * -1;
-            m_posX = (_player.transform.position.x * m_posY) / _player.transform.position.y;
+            m_posX = -m_cameraBound;
+            m_posY = (carmeraToTarget.y * m_posX) / carmeraToTarget.x;
 
-            _indicator.transform.position = new Vector3(m_posX, m_posY - m_offset, -1);
+            _indicator.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(m_posX + m_cameraBound, m_posY + m_cameraBound, 0));
+            _indicator.transform.position += Vector3. right * m_offset;
+            _indicator.transform.position = new Vector3(_indicator.transform.position.x, _indicator.transform.position.y, 0);
         }
+        else
+            m_isActive = false;
+
+        #endregion
+
 
         _indicator.SetActive(m_isActive);
 
