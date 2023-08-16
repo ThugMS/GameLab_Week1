@@ -6,6 +6,7 @@ public class Stage1 : BaseStage
 {
     #region PublicVariables
     #endregion
+
     #region PrivateVariables
 
     [SerializeField]
@@ -39,8 +40,10 @@ public class Stage1 : BaseStage
     GameObject Platforms;
 
     #endregion
+
     #region PublicMethod
     #endregion
+
     #region PrivateMethod
 
     public override void StageStart()
