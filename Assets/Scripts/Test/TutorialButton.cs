@@ -27,6 +27,7 @@ public class TutorialButton : MonoBehaviour
 	public void Initialize()
 	{
 		m_animator.SetBool("check", false);
+		m_isCheck = false;
 	}
 
 	public bool isCheck()

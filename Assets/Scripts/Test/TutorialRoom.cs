@@ -45,6 +45,10 @@ public class TutorialRoom : MonoBehaviour
 	{
 		CameraController.instance.GoMainStage();
 		GameManager.instance.GameStart();
+		foreach(TutorialButton button in m_buttons)
+		{
+			button.Initialize();
+		}
 		m_floor.SetActive(false);
 		m_stageTrigger.StageStart();
     }
