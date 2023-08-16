@@ -16,6 +16,7 @@ public class UIController : MonoBehaviour
 	{
 		foreach (UIHeartContainer ui in m_uiList)
 		{
+			ui.Initialize();
 			ui.gameObject.SetActive(true);
 		}
 	}
