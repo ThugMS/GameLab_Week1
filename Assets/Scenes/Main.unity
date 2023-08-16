@@ -267,6 +267,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12f0de4dd8f8161408b547c4b99379e4, type: 3}
+--- !u!114 &236528037 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4173498359324702703, guid: f5413385ea543ba44b14e4ab66c27b05, type: 3}
+  m_PrefabInstance: {fileID: 536527449}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3ca837195430d440961c28baec3ade4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &271732405 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3079227310732001891, guid: 58247c9b29fa7984996099458226cb79, type: 3}
@@ -634,6 +645,10 @@ PrefabInstance:
     - target: {fileID: 4173498359324702700, guid: f5413385ea543ba44b14e4ab66c27b05, type: 3}
       propertyPath: m_Name
       value: Indicator
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173498359324702700, guid: f5413385ea543ba44b14e4ab66c27b05, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4173498359324702702, guid: f5413385ea543ba44b14e4ab66c27b05, type: 3}
       propertyPath: m_RootOrder
@@ -1248,12 +1263,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onGameStart:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8314198716016649640}
-        m_TargetAssemblyTypeName: SnowController, Assembly-CSharp
-        m_MethodName: PlaySnow
+      - m_Target: {fileID: 2077320718}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: HideUI
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1263,9 +1275,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1199858080}
-        m_TargetAssemblyTypeName: UIHeartContainer, Assembly-CSharp
-        m_MethodName: Initialize
+  onGameStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8314198716016649640}
+        m_TargetAssemblyTypeName: SnowController, Assembly-CSharp
+        m_MethodName: PlaySnow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1352,34 +1367,10 @@ MonoBehaviour:
         m_CallState: 2
   onMainScreen:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1648901369}
-        m_TargetAssemblyTypeName: MainScreen, Assembly-CSharp
-        m_MethodName: ShowMainScreen
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   offMainScreen:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1648901369}
-        m_TargetAssemblyTypeName: MainScreen, Assembly-CSharp
-        m_MethodName: HideMainScreen
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!4 &1568417045
 Transform:
   m_ObjectHideFlags: 0
@@ -1396,17 +1387,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1648901369 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1648901369, guid: 98b9829bc1ea78b4cb90315f17a8e021, type: 3}
-  m_PrefabInstance: {fileID: 882665877}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be35cc5f3dae19244ae6d1bd40708e6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1700416402
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1932,6 +1912,7 @@ MonoBehaviour:
   m_uiList:
   - {fileID: 1199858080}
   - {fileID: 1298062201}
+  indicator: {fileID: 236528037}
 --- !u!114 &2082984595 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6194900789347976838, guid: c1eb60b506e54784182cbd093ce63e60, type: 3}
