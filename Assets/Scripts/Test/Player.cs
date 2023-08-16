@@ -19,10 +19,10 @@ public class Player : MonoBehaviour
     private int m_dir = 1;
     private float m_speed = 5.0f;
     private float m_jumpPower = 7.0f;
-    private float m_weakAttackCoolTime = 0.4f;
-    private float m_strongAttackCoolTime = 0.7f;
+    private float m_weakAttackCoolTime = 0.5f;
+    private float m_strongAttackCoolTime = 1.083f;
     private float m_counterCoolTime = 0.7f;
-    private float m_hitCoolTime = 0.5f;
+    private float m_hitCoolTime = 0.667f;
     private float m_shieldTime = 0.3f;
     private Color m_playerColor = new Color(1f,1f,1f);
 
@@ -126,7 +126,7 @@ public class Player : MonoBehaviour
         }
 
         Invoke("SetMovable", m_strongAttackCoolTime);
-        
+
         m_sword.StrongAttack(m_strongAttackCoolTime);
     }
 
