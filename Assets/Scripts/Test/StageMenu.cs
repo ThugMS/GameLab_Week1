@@ -68,11 +68,11 @@ public class StageMenu : MonoBehaviour
 
     public void SpawnInTutorial()
     {
-        PlayerManager.instance.m_player1.transform.position = m_tutorialPos1;
-        PlayerManager.instance.m_player2.transform.position = m_tutorialPos2;
-
         PlayerManager.instance.m_player1.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         PlayerManager.instance.m_player2.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+
+        PlayerManager.instance.m_player1.transform.position = m_tutorialPos1;
+        PlayerManager.instance.m_player2.transform.position = m_tutorialPos2;
     }
 
     private void SpawnInStage()

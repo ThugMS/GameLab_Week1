@@ -38,8 +38,6 @@ public class UIHeartContainer : MonoBehaviour
 	{
 		GameManager.instance.GameEnd();
 		Destroy(GameObject.Find("Platforms"));
-
-
     }
 	#endregion
 }
