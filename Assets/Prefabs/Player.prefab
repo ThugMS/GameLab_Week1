@@ -1693,6 +1693,8 @@ MonoBehaviour:
   m_animator: {fileID: 4499776349497693644}
   m_body: {fileID: 4499776349497693645}
   m_counterEffect: {fileID: 4015355647860865039}
+  m_heartContainer: {fileID: 0}
+  m_revival: {fileID: 8090078310217141087}
 --- !u!210 &2520410194681627610
 SortingGroup:
   m_ObjectHideFlags: 0

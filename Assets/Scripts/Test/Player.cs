@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject m_body;
     [SerializeField] Animator m_counterEffect;
 	[SerializeField] UIHeartContainer m_heartContainer;
+	[SerializeField] Revival m_revival;
     #endregion
 
     #region PublicMethod
@@ -203,6 +204,7 @@ public class Player : MonoBehaviour
 	public void Dead()
 	{
 		m_heartContainer.Pop();
+		m_revival.Revive();
 	}
     #endregion
 

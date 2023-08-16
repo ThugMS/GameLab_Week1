@@ -43,10 +43,9 @@ public class TutorialRoom : MonoBehaviour
 	#region PrivateMethod
 	private void TutorialEnd()
 	{
-
 		CameraController.instance.SetFieldData(m_field);
+		GameManager.instance.GameStart();
 		m_floor.SetActive(false);
-
 		m_stageTrigger.StageStart();
     }
 	#endregion
