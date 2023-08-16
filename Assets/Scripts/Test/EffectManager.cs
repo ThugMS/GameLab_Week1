@@ -22,7 +22,7 @@ public class EffectManager : MonoBehaviour
 			instance = this;
 		}
 	}
-	public void CallEffect(EEffectType type, Vector2 position)
+	public void CallEffect(EEffectType type, Vector2 position, float _rotMult)
 	{
 		GameObject current = GetEffectFromList(type);
 		EffectBundle bundle = effects[(int)type];
@@ -31,11 +31,13 @@ public class EffectManager : MonoBehaviour
 		{
 			current = Instantiate(bundle.prefab, position, Quaternion.identity, transform) as GameObject;
 			bundle.list.Add(current);
-		}
+            current.transform.localScale = new Vector3(_rotMult, 1, 1);
+        }
 		else
 		{
 			current.transform.position = position;
-			current.SetActive(true);
+            current.transform.localScale = new Vector3(_rotMult, 1, 1);
+            current.SetActive(true);
 		}
 	}
 	#endregion

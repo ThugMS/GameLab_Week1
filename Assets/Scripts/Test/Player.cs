@@ -7,7 +7,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     #region PublicVariables
-
+    public List<TutorialButton> m_tutorialKeyInput = new List<TutorialButton>();
     #endregion
 
     #region PrivateVariables
@@ -230,8 +230,15 @@ public class Player : MonoBehaviour
         {
             GameObject hitplayer = collision.GetComponent<PlayerSword>().m_player;
 
+            if (m_isShield == false)
+            {
+                EffectManager.instance.CallEffect(EffectManager.EEffectType.smash, collision.transform.position, hitplayer.transform.localScale.x);
+
+            }
             Hit();
             CameraController.instance.SmashShake();
+
+            
 
             StrongKnockBack(hitplayer.GetComponent<Player>().GetDirection());
         }

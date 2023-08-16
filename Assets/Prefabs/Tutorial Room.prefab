@@ -2615,7 +2615,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1471190658718724262, guid: 0247c5f8ccfb88c4bb934c111a60e153, type: 3}
       propertyPath: m_Name
-      value: Tutorial Button (8)
+      value: ;
       objectReference: {fileID: 0}
     - target: {fileID: 2025706002701920834, guid: 0247c5f8ccfb88c4bb934c111a60e153, type: 3}
       propertyPath: m_text
@@ -2771,7 +2771,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1471190658718724262, guid: 0247c5f8ccfb88c4bb934c111a60e153, type: 3}
       propertyPath: m_Name
-      value: Tutorial Button (3)
+      value: W
       objectReference: {fileID: 0}
     - target: {fileID: 2025706002701920834, guid: 0247c5f8ccfb88c4bb934c111a60e153, type: 3}
       propertyPath: m_text
@@ -2852,7 +2852,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1471190658718724262, guid: 0247c5f8ccfb88c4bb934c111a60e153, type: 3}
       propertyPath: m_Name
-      value: Tutorial Button (6)
+      value: D
       objectReference: {fileID: 0}
     - target: {fileID: 2025706002701920834, guid: 0247c5f8ccfb88c4bb934c111a60e153, type: 3}
       propertyPath: m_text
@@ -2995,7 +2995,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1471190658718724262, guid: 0247c5f8ccfb88c4bb934c111a60e153, type: 3}
       propertyPath: m_Name
-      value: Tutorial Button (2)
+      value: J
       objectReference: {fileID: 0}
     - target: {fileID: 2025706002701920834, guid: 0247c5f8ccfb88c4bb934c111a60e153, type: 3}
       propertyPath: m_text
@@ -3076,7 +3076,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1471190658718724262, guid: 0247c5f8ccfb88c4bb934c111a60e153, type: 3}
       propertyPath: m_Name
-      value: Tutorial Button (9)
+      value: ''''
       objectReference: {fileID: 0}
     - target: {fileID: 2025706002701920834, guid: 0247c5f8ccfb88c4bb934c111a60e153, type: 3}
       propertyPath: m_text
@@ -3161,7 +3161,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1471190658718724262, guid: 0247c5f8ccfb88c4bb934c111a60e153, type: 3}
       propertyPath: m_Name
-      value: Tutorial Button (10)
+      value: UpArrow
       objectReference: {fileID: 0}
     - target: {fileID: 2025706002701920834, guid: 0247c5f8ccfb88c4bb934c111a60e153, type: 3}
       propertyPath: m_text
@@ -3242,7 +3242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1471190658718724262, guid: 0247c5f8ccfb88c4bb934c111a60e153, type: 3}
       propertyPath: m_Name
-      value: Tutorial Button (11)
+      value: LeftArrow
       objectReference: {fileID: 0}
     - target: {fileID: 2025706002701920834, guid: 0247c5f8ccfb88c4bb934c111a60e153, type: 3}
       propertyPath: m_text
@@ -3323,7 +3323,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1471190658718724262, guid: 0247c5f8ccfb88c4bb934c111a60e153, type: 3}
       propertyPath: m_Name
-      value: Tutorial Button (1)
+      value: H
       objectReference: {fileID: 0}
     - target: {fileID: 2025706002701920834, guid: 0247c5f8ccfb88c4bb934c111a60e153, type: 3}
       propertyPath: m_text
@@ -3404,7 +3404,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1471190658718724262, guid: 0247c5f8ccfb88c4bb934c111a60e153, type: 3}
       propertyPath: m_Name
-      value: Tutorial Button (4)
+      value: A
       objectReference: {fileID: 0}
     - target: {fileID: 2025706002701920834, guid: 0247c5f8ccfb88c4bb934c111a60e153, type: 3}
       propertyPath: m_text
@@ -3485,7 +3485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1471190658718724262, guid: 0247c5f8ccfb88c4bb934c111a60e153, type: 3}
       propertyPath: m_Name
-      value: Tutorial Button (13)
+      value: RightArrow
       objectReference: {fileID: 0}
     - target: {fileID: 2025706002701920834, guid: 0247c5f8ccfb88c4bb934c111a60e153, type: 3}
       propertyPath: m_text
@@ -3562,7 +3562,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1471190658718724262, guid: 0247c5f8ccfb88c4bb934c111a60e153, type: 3}
       propertyPath: m_Name
-      value: Tutorial Button
+      value: G
       objectReference: {fileID: 0}
     - target: {fileID: 4706458961491018279, guid: 0247c5f8ccfb88c4bb934c111a60e153, type: 3}
       propertyPath: m_RootOrder
@@ -3639,7 +3639,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1471190658718724262, guid: 0247c5f8ccfb88c4bb934c111a60e153, type: 3}
       propertyPath: m_Name
-      value: Tutorial Button (7)
+      value: L
       objectReference: {fileID: 0}
     - target: {fileID: 2025706002701920834, guid: 0247c5f8ccfb88c4bb934c111a60e153, type: 3}
       propertyPath: m_text
@@ -3721,6 +3721,10 @@ PrefabInstance:
     - target: {fileID: 1471190658718724262, guid: 0247c5f8ccfb88c4bb934c111a60e153, type: 3}
       propertyPath: m_Name
       value: Tutorial Button (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1471190658718724262, guid: 0247c5f8ccfb88c4bb934c111a60e153, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2025706002701920834, guid: 0247c5f8ccfb88c4bb934c111a60e153, type: 3}
       propertyPath: m_text
@@ -3872,6 +3876,10 @@ PrefabInstance:
     - target: {fileID: 1471190658718724262, guid: 0247c5f8ccfb88c4bb934c111a60e153, type: 3}
       propertyPath: m_Name
       value: Tutorial Button (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1471190658718724262, guid: 0247c5f8ccfb88c4bb934c111a60e153, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2025706002701920834, guid: 0247c5f8ccfb88c4bb934c111a60e153, type: 3}
       propertyPath: m_text
