@@ -50,7 +50,7 @@ public class TutorialRoom : MonoBehaviour
 			button.Initialize();
 		}
 		m_floor.SetActive(false);
-		m_stageTrigger.StageStart();
+		m_stageTrigger.StartStage();
     }
 	#endregion
 }

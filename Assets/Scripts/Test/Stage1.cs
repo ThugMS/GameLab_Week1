@@ -32,7 +32,6 @@ public class Stage1 : BaseStage
 
     [SerializeField] float m_quakeTime;
 
-    GameObject Platforms;
 
     #endregion
 
@@ -41,8 +40,9 @@ public class Stage1 : BaseStage
 
     #region PrivateMethod
 
-    public override void StageStart()
+    public override void StartStage()
     {
+        base.InitStage();
         Platforms = new GameObject { name = "Platforms" };
 
         MakePlatform(Direct.Center, m_startPoint);
@@ -64,7 +64,7 @@ public class Stage1 : BaseStage
 
             go.GetComponent<Transform>().localScale = new Vector3(m_startPoint.x * 2, m_platformSize.y, m_platformSize.z);
             go.GetComponent<Transform>().position = new Vector3(0, m_startPoint.y, m_startPoint.z);
-
+            go.transform.SetParent(Platforms.transform);
             return;
         }
                     
@@ -100,6 +100,8 @@ public class Stage1 : BaseStage
 
         }
     }
+
+    
 
     #endregion
 

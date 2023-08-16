@@ -9,9 +9,11 @@ public class StageMenu : MonoBehaviour
 
     #region PrivateVariables
 
-    
-    [SerializeField] Vector3 m_playerPos1 = new Vector3(-5f, 5f, 0);
-    [SerializeField] Vector3 m_playerPos2 = new Vector3(5f, 5f, 0);
+    Vector3 m_tutorialPos1 = new Vector3(-4f, 35, 0);
+    Vector3 m_tutorialPos2 = new Vector3(4f, 35, 0);
+
+    Vector3 m_playerPos1 = new Vector3(-5f, 5f, 0);
+    Vector3 m_playerPos2 = new Vector3(5f, 5f, 0);
 
     [SerializeField] private GameObject m_stagePanel;
     [SerializeField] private BaseStage m_stage1;
@@ -28,6 +30,7 @@ public class StageMenu : MonoBehaviour
     public void ChooseTutorial()
     {
         GameManager.instance.TutorialStart();
+        SpawnInTutorial();
         HideStagePanel();
         CallHideMainScreen();
         RunTimeScale();
@@ -35,8 +38,8 @@ public class StageMenu : MonoBehaviour
 
     public void ChooseStage1()
     {
-        m_stage1.GetComponent<Stage1>().StageStart();
-        SpawnPlayers();
+        m_stage1.GetComponent<Stage1>().StartStage();
+        SpawnInStage();
         GameManager.instance.GameStart();
         HideStagePanel();
         CallHideMainScreen();
@@ -45,8 +48,8 @@ public class StageMenu : MonoBehaviour
 
     public void ChooseStage2()
     {
-        m_stage2.GetComponent<Stage2>().StageStart();
-        SpawnPlayers();
+        m_stage2.GetComponent<Stage2>().StartStage();
+        SpawnInStage();
         GameManager.instance.GameStart();
         HideStagePanel();
         CallHideMainScreen();
@@ -55,18 +58,30 @@ public class StageMenu : MonoBehaviour
 
     public void ChooseStage3()
     {
-        m_stage3.GetComponent<Stage3>().StageStart();
-        SpawnPlayers();
+        m_stage3.GetComponent<Stage3>().StartStage();
+        SpawnInStage();
         GameManager.instance.GameStart();
         HideStagePanel();
         CallHideMainScreen();
         RunTimeScale();
     }
 
-    private void SpawnPlayers()
+    private void SpawnInTutorial()
+    {
+        PlayerManager.instance.m_player1.transform.position = m_tutorialPos1;
+        PlayerManager.instance.m_player2.transform.position = m_tutorialPos2;
+
+        PlayerManager.instance.m_player1.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        PlayerManager.instance.m_player2.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+    }
+
+    private void SpawnInStage()
     {
         PlayerManager.instance.m_player1.transform.position = m_playerPos1;
         PlayerManager.instance.m_player2.transform.position = m_playerPos2;
+
+        PlayerManager.instance.m_player1.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        PlayerManager.instance.m_player2.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
     }
 
     public void HideStagePanel()
