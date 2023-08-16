@@ -933,6 +933,7 @@ GameObject:
   - component: {fileID: 3303764869314224874}
   - component: {fileID: 2520410194681627610}
   - component: {fileID: 5485572811971768686}
+  - component: {fileID: 8090078310217141087}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1005,6 +1006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cae9e7a3dc8db59408d540a3a792d611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_tutorialKeyInput: []
   m_sword: {fileID: 1611091882090352309}
   m_animator: {fileID: 4499776349497693644}
   m_body: {fileID: 4499776349497693645}
@@ -1032,6 +1034,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d144d6683b96b848857f835d761ffe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8090078310217141087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5295662629142493850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cde30a7f7c5dee44e935db3b8418fa06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_tryCounter: 5
+  m_maxDistance: 15
+  m_randomRange: 15
+  m_spawnPosY: 20
 --- !u!1 &5368484599577314283
 GameObject:
   m_ObjectHideFlags: 0
