@@ -37,10 +37,10 @@ public class CameraShaker : MonoBehaviour
 			timer += Time.deltaTime / halfDuration;
 
 			tick += Time.deltaTime * data.roughness;
-			transform.localPosition = new Vector3((Mathf.PerlinNoise(tick, 0) - 0.5f) * data.magnitude 
-				, (Mathf.PerlinNoise(0, tick) - 0.5f) * data.magnitude
-				, -10f)
-				* Mathf.PingPong(timer, halfDuration);
+			transform.localPosition = new Vector3((Mathf.PerlinNoise(tick, 0) - 0.5f) * data.magnitude * Mathf.PingPong(timer, halfDuration)
+				, (Mathf.PerlinNoise(0, tick) - 0.5f) * data.magnitude * Mathf.PingPong(timer, halfDuration)
+				, -10f);
+			Debug.Log(transform.localPosition.z);
 
 			yield return null;
 		}
