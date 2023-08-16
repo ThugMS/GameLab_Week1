@@ -180,6 +180,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36d6f6527917ef04f8de3a75593f5c35, type: 3}
+--- !u!198 &222026941 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5629520606352456181, guid: 67191fcec67e1de4cb2f18e2e2fcba1e, type: 3}
+  m_PrefabInstance: {fileID: 7989222151150222299}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &271732405 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3079227310732001891, guid: 58247c9b29fa7984996099458226cb79, type: 3}
@@ -1302,6 +1307,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4793795235055213494, guid: 67191fcec67e1de4cb2f18e2e2fcba1e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4829617550144862629, guid: 67191fcec67e1de4cb2f18e2e2fcba1e, type: 3}
+      propertyPath: m_hitParticle
+      value: 
+      objectReference: {fileID: 222026941}
+    - target: {fileID: 4829617550293904565, guid: 67191fcec67e1de4cb2f18e2e2fcba1e, type: 3}
+      propertyPath: m_hitParticle
+      value: 
+      objectReference: {fileID: 222026941}
+    - target: {fileID: 5629520606352456180, guid: 67191fcec67e1de4cb2f18e2e2fcba1e, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5629520606352456180, guid: 67191fcec67e1de4cb2f18e2e2fcba1e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5629520606352456180, guid: 67191fcec67e1de4cb2f18e2e2fcba1e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5629520606352456180, guid: 67191fcec67e1de4cb2f18e2e2fcba1e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6076635099296242708, guid: 67191fcec67e1de4cb2f18e2e2fcba1e, type: 3}

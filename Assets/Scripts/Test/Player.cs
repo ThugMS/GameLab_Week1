@@ -36,11 +36,12 @@ public class Player : MonoBehaviour
     private Rigidbody2D m_rigidbody;
     private Collider2D m_collider;
 
-    [SerializeField] PlayerSword m_sword;
-    [SerializeField] Animator m_animator;
-    [SerializeField] GameObject m_body;
-    [SerializeField] Animator m_counterEffect;
-	[SerializeField] UIHeartContainer m_heartContainer;
+    [SerializeField] private PlayerSword m_sword;
+    [SerializeField] private Animator m_animator;
+    [SerializeField] private GameObject m_body;
+    [SerializeField] private Animator m_counterEffect;
+	[SerializeField] private UIHeartContainer m_heartContainer;
+    [SerializeField] private ParticleSystem m_hitParticle;
     #endregion
 
     #region PublicMethod
@@ -286,9 +287,13 @@ public class Player : MonoBehaviour
                 if (m_isShield == false)
                 {
                     WeakKnockBack(hitplayer.GetComponent<Player>().GetDirection());
+                    m_hitParticle.transform.position = collision.transform.position;
+                    m_hitParticle.Play();
                 }
                 Hit();
                 
+                
+
                 CameraController.instance.AttackShake();
 
                 
