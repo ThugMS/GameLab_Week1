@@ -12,13 +12,13 @@ public class GameManager : MonoBehaviour
 	public UnityEvent onGameEnd;
 	public UnityEvent onMainScreen;
     public UnityEvent offMainScreen;
-    #endregion
+	#endregion
 
-    #region PrivateVariables
-    #endregion
+	#region PrivateVariables
+	#endregion
 
-    #region PublicMethod
-    public void Awake()
+	#region PublicMethod
+	public void Awake()
 	{
 		if (instance == null)
 			instance = this;
