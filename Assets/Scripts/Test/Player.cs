@@ -51,6 +51,8 @@ public class Player : MonoBehaviour
     {
         m_rigidbody = GetComponent<Rigidbody2D>();
         m_collider = GetComponent<Collider2D>();
+
+        m_dir = (int)transform.localScale.x;
     }
 
     public void Move(int _dir)
