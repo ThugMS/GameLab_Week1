@@ -12,6 +12,7 @@ public class ESCMenu : MonoBehaviour
     [SerializeField] private GameObject m_escPanel;
     [SerializeField] private GameObject m_stagePanel;
 
+    private bool isEsc = false;
     #endregion
 
     #region PublicMethod
@@ -20,6 +21,13 @@ public class ESCMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             g_pause = !g_pause;
+            isEsc = true;
+        }
+
+        if(isEsc == true)
+        {
+            m_stagePanel.SetActive(false);
+            m_escPanel.SetActive(true);
         }
 
         if(g_pause == true)
@@ -41,21 +49,24 @@ public class ESCMenu : MonoBehaviour
     public void PressResumeButton()
     {
         g_pause = !g_pause;
+        isEsc = false;
     }
 
     public void PreesExitButton()
     {
         #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
-        #else
+        isEsc = false;
+#else
         Application.Quit();
-        #endif
+        isEsc = false;
+#endif
     }
 
     public void StageButton()
     {
         m_escPanel.SetActive(false);
-
+        isEsc = false;
         m_stagePanel.SetActive(true);
     }
 #endregion
