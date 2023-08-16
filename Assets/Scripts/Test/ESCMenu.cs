@@ -13,7 +13,7 @@ public class ESCMenu : MonoBehaviour
     #endregion
 
     #region PublicMethod
-    private void Update()
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -31,7 +31,21 @@ public class ESCMenu : MonoBehaviour
             Time.timeScale = 1f;
         }
     }
-    #endregion
+
+    public void PressResumeButton()
+    {
+        g_pause = !g_pause;
+    }
+
+    public void PreesExitButton()
+    {
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #else
+        Application.Quit();
+        #endif
+    }
+#endregion
 
     #region PrivateMethod
     #endregion
