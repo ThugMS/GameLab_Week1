@@ -18,17 +18,19 @@ public class Revival : MonoBehaviour
     #endregion
     #region PrivateMethod
 
+	/*
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("DeadLine"))
         {
+			transform.GetComponent<Player>().Dead();
             if (FindSpawnPos(other) == false)
                 transform.position = other.transform.position + Vector3.up * m_spawnPosY;
             
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
     }
-
+	*/
     private bool FindSpawnPos(Collider2D _other)
     {
         for (int i = 0; i < m_tryCounter; i++)

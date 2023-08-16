@@ -40,6 +40,7 @@ public class Player : MonoBehaviour
     [SerializeField] Animator m_animator;
     [SerializeField] GameObject m_body;
     [SerializeField] Animator m_counterEffect;
+	[SerializeField] UIHeartContainer m_heartContainer;
     #endregion
 
     #region PublicMethod
@@ -198,6 +199,11 @@ public class Player : MonoBehaviour
     {
         return m_dir;
     }
+
+	public void Dead()
+	{
+		m_heartContainer.Pop();
+	}
     #endregion
 
     #region PrivateMethod

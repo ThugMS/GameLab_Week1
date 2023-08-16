@@ -1510,11 +1510,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_hearts:
-  - {fileID: 6544808077698834506}
-  - {fileID: 6544808077618911292}
-  - {fileID: 6544808077439172869}
-  - {fileID: 6544808078339608082}
   - {fileID: 6544808078333085127}
+  - {fileID: 6544808078339608082}
+  - {fileID: 6544808077439172869}
+  - {fileID: 6544808077618911292}
+  - {fileID: 6544808077698834506}
 --- !u!1 &207996858563645212
 GameObject:
   m_ObjectHideFlags: 0
