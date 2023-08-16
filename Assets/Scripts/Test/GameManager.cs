@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
 	#region PublicVariables
 	public static GameManager instance;
+	public UnityEvent onGameTutorial;
 	public UnityEvent onGameStart;
 	public UnityEvent onGameEnd;
 	#endregion
@@ -19,6 +20,10 @@ public class GameManager : MonoBehaviour
 	{
 		if (instance == null)
 			instance = this;
+	}
+	public void TutorialStart()
+	{
+		onGameTutorial.Invoke();
 	}
 	public void GameStart()
 	{
