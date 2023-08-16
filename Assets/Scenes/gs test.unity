@@ -195,6 +195,90 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 673722298503782264, guid: 67191fcec67e1de4cb2f18e2e2fcba1e, type: 3}
   m_PrefabInstance: {fileID: 7989222151150222299}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &420930292
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 207996858360885810, guid: c85fbcd638189e840bac9d440a1e2cb0, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 207996858360885810, guid: c85fbcd638189e840bac9d440a1e2cb0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 207996858360885810, guid: c85fbcd638189e840bac9d440a1e2cb0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 207996858360885810, guid: c85fbcd638189e840bac9d440a1e2cb0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 207996858360885810, guid: c85fbcd638189e840bac9d440a1e2cb0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 207996858360885810, guid: c85fbcd638189e840bac9d440a1e2cb0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 207996858360885810, guid: c85fbcd638189e840bac9d440a1e2cb0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 207996858360885810, guid: c85fbcd638189e840bac9d440a1e2cb0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 207996858360885810, guid: c85fbcd638189e840bac9d440a1e2cb0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 207996858360885810, guid: c85fbcd638189e840bac9d440a1e2cb0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 207996858360885810, guid: c85fbcd638189e840bac9d440a1e2cb0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 207996858360885811, guid: c85fbcd638189e840bac9d440a1e2cb0, type: 3}
+      propertyPath: m_Name
+      value: Heart UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 2961488412923104182, guid: c85fbcd638189e840bac9d440a1e2cb0, type: 3}
+      propertyPath: xAxisMult
+      value: -0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 2961488412923104182, guid: c85fbcd638189e840bac9d440a1e2cb0, type: 3}
+      propertyPath: yAxisMult
+      value: 0.775
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422288917503452118, guid: c85fbcd638189e840bac9d440a1e2cb0, type: 3}
+      propertyPath: xAxisMult
+      value: -0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422288917503452118, guid: c85fbcd638189e840bac9d440a1e2cb0, type: 3}
+      propertyPath: yAxisMult
+      value: 0.775
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c85fbcd638189e840bac9d440a1e2cb0, type: 3}
+--- !u!114 &420930293 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5864676508521073282, guid: c85fbcd638189e840bac9d440a1e2cb0, type: 3}
+  m_PrefabInstance: {fileID: 420930292}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4332070d7703bcd4ca3ec9936ef5bddb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &536527449
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -421,6 +505,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ChooseStage1
       objectReference: {fileID: 0}
+    - target: {fileID: 4009051481136952621, guid: 2351039d7499a5440ad0f2e9dc17ed50, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1158282917}
+    - target: {fileID: 4009051481136952621, guid: 2351039d7499a5440ad0f2e9dc17ed50, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChooseTutorial
+      objectReference: {fileID: 0}
     - target: {fileID: 4009051481136952622, guid: 2351039d7499a5440ad0f2e9dc17ed50, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -638,6 +730,92 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2733000131664219922, guid: c1eb60b506e54784182cbd093ce63e60, type: 3}
   m_PrefabInstance: {fileID: 9006106121659092389}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1727908104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1727908106}
+  - component: {fileID: 1727908105}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1727908105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727908104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b42304c5dc779f643b4fe6e5972f3fab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onGameStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SnowController, Assembly-CSharp
+        m_MethodName: PlaySnow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 420930293}
+        m_TargetAssemblyTypeName: UIHeartContainer, Assembly-CSharp
+        m_MethodName: Initialize
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onGameEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SnowController, Assembly-CSharp
+        m_MethodName: StopSnow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!4 &1727908106
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727908104}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1807740279
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1085,6 +1263,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1341933559}
     m_Modifications:
+    - target: {fileID: 7727467533199625715, guid: 738e1c0eb173a6348a25a94083d188c7, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8314198716589988437, guid: 738e1c0eb173a6348a25a94083d188c7, type: 3}
       propertyPath: m_RootOrder
       value: 0

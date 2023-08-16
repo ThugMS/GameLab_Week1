@@ -27,7 +27,7 @@ public class StageMenu : MonoBehaviour
 
     public void ChooseTutorial()
     {
-        
+        HideStagePanel();
     }
 
     public void ChooseStage1()

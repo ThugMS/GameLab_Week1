@@ -107,6 +107,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stage1
       objectReference: {fileID: 0}
+    - target: {fileID: 6418065901734400761, guid: a5517c703510f0043bb04b1ff7666349, type: 3}
+      propertyPath: m_size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6418065901734400762, guid: a5517c703510f0043bb04b1ff7666349, type: 3}
       propertyPath: m_RootOrder
       value: 0
