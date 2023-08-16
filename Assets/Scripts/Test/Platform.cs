@@ -23,26 +23,22 @@ public class Platform : MonoBehaviour
         Rotate,
     }
 
-    [SerializeField]
-    PlatformType m_platformType;
+    [SerializeField] PlatformType m_platformType;
 
-    [SerializeField]
-    float m_shortenSpeed;
+    [SerializeField] float m_shortenSpeed;
 
-    [SerializeField]
-    float m_shortenLimit;
+    [SerializeField] float m_shortenLimit;
 
-    [SerializeField]
-    float m_RotateSpeed;
+    [SerializeField] float m_RotateSpeed;
 
-    [SerializeField]
-    float m_RotateLimit;
+    [SerializeField] float m_RotateLimit;
 
     int m_RotateToggle = 1;
 
-    bool isQuake;
+    bool m_isQuake;
+    bool m_shortenToggle;
 
-    
+    float m_originSizeY;
 
     #endregion
     #region PublicMethod
@@ -60,6 +56,8 @@ public class Platform : MonoBehaviour
         //shadow.transform.position = new Vector3(position.x, position.y, position.z + 0.1f);
 
         gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+
+        m_originSizeY = transform.localScale.y;
 
         switch (m_platformType)
         {
@@ -81,8 +79,20 @@ public class Platform : MonoBehaviour
                 break;
             case PlatformType.Shorten:
                 {
-                    if (transform.localScale.x > m_shortenLimit)
-                        transform.localScale = new Vector2(transform.localScale.x - (Time.deltaTime * m_shortenSpeed), transform.localScale.y);
+                    if (m_shortenToggle == false)
+                    {
+                        transform.localScale = new Vector2(transform.localScale.x, transform.localScale.y - (Time.deltaTime * m_shortenSpeed));
+
+                        if (transform.localScale.y < m_shortenLimit)
+                            m_shortenToggle = true;
+                    }
+                    else
+                    { 
+                        transform.localScale = new Vector2(transform.localScale.x, transform.localScale.y + (Time.deltaTime* m_shortenSpeed));
+                        
+                        if (transform.localScale.y > m_originSizeY)
+                            m_shortenToggle = false;
+                    }
                 }
                 break;
             case PlatformType.Rotate:
@@ -103,10 +113,10 @@ public class Platform : MonoBehaviour
             yield break;
 
         yield return new WaitForSeconds(_lifeTime);
-        isQuake = true;
+        m_isQuake = true;
 
         yield return new WaitForSeconds(m_quakeTime);
-        isQuake = false;
+        m_isQuake = false;
         gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         gameObject.GetComponent<Collider2D>().isTrigger = true;
 
@@ -114,7 +124,7 @@ public class Platform : MonoBehaviour
 
     private void QuakePlatform()
     {
-        if (isQuake == false)
+        if (m_isQuake == false)
             return;
 
         transform.position += new Vector3(Random.Range(m_quakeRange * -1, m_quakeRange), Random.Range(m_quakeRange * -1, m_quakeRange), 0) * Time.deltaTime;
