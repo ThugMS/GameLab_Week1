@@ -22,6 +22,8 @@ public class Revival : MonoBehaviour
     {
         if (other.CompareTag("DeadLine"))
         {
+			transform.GetComponent<Player>().Dead();
+			Debug.Log("hi");
             if (FindSpawnPos(other) == false)
                 transform.position = other.transform.position + Vector3.up * m_spawnPosY;
             
