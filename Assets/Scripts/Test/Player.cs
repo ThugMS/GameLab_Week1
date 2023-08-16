@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
     [SerializeField] PlayerSword m_sword;
     [SerializeField] Animator m_animator;
     [SerializeField] GameObject m_body;
+    [SerializeField] Animator m_counterEffect;
     #endregion
 
     #region PublicMethod
@@ -212,6 +213,7 @@ public class Player : MonoBehaviour
             if (m_isCounter == true)
             {
                 hitplayer.GetComponent<Player>().CounterHit();
+                m_counterEffect.Play("sizeUpWithFadeOut");
             }
             else
             {
