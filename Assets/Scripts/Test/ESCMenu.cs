@@ -21,7 +21,7 @@ public class ESCMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             g_pause = !g_pause;
-            isEsc = true;
+            isEsc = !isEsc;
         }
 
         if(isEsc == true)

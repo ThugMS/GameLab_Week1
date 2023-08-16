@@ -35,7 +35,6 @@ public class TutorialRoom : MonoBehaviour
 		++m_count;
 		if(m_count >= m_buttons.Count)
 		{
-			Initialize();
 			TutorialEnd();
 		}
 	}
@@ -44,11 +43,7 @@ public class TutorialRoom : MonoBehaviour
 	private void TutorialEnd()
 	{
 		CameraController.instance.GoMainStage();
-		GameManager.instance.GameStart();
-		foreach(TutorialButton button in m_buttons)
-		{
-			button.Initialize();
-		}
+        GameManager.instance.GameStart();
 		m_floor.SetActive(false);
 		Invoke("RegeneratePlatform", 3f);
 		m_stageTrigger.StartStage();
