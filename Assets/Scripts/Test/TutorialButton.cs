@@ -11,20 +11,27 @@ public class TutorialButton : MonoBehaviour
 
 	[SerializeField] Animator m_animator;
 
+	private bool m_isCheck = false;
 	#endregion
 	#region PublicMethod
 	public void OnEnable()
 	{
-		Initialize();
+		Initialize(); 
 	}
 	public void Check()
 	{
 		m_animator.SetBool("check", true);
+		m_isCheck = true;
 		m_room.ButtonChecked();
 	}
 	public void Initialize()
 	{
 		m_animator.SetBool("check", false);
+	}
+
+	public bool isCheck()
+	{
+		return m_isCheck;
 	}
 	#endregion
 	#region PrivateMethod

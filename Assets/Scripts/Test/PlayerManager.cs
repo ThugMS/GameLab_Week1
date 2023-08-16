@@ -22,7 +22,8 @@ public class PlayerManager : MonoBehaviour
         m_player1Controller = m_player1.GetComponent<Player>();
         m_player2Controller = m_player2.GetComponent<Player>();
 
-        
+        AddTutorialKey(ref m_player1, 0, 7);
+        AddTutorialKey(ref m_player2, 7, 7);
     }
     void Update()
     {
@@ -86,9 +87,12 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    private void AddTutorialKey(int _index, int _range)
+    private void AddTutorialKey(ref GameObject _player, int _index, int _range)
     {
-        ;
+        for(int i=_index; i<_index + _range; i++)
+        {
+            _player.GetComponent<Player>().m_tutorialKeyInput.Add(m_keyName[i]);
+        }
     }
     #endregion
 }

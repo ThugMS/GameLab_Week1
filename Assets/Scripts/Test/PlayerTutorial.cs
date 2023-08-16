@@ -9,7 +9,7 @@ public class PlayerTutorial : MonoBehaviour
     #endregion
 
     #region PrivateVariables
-    [SerializeField] private List<TutorialButton> m_keyName = new List<TutorialButton>();
+    
     [SerializeField] private Dictionary<string, TutorialButton> m_keyInputCheck = new Dictionary<string, TutorialButton>();
     #endregion
 
