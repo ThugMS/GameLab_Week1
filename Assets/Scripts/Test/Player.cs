@@ -4,6 +4,11 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
+public enum TutorialInput {
+    Jump, Left, Right, WeakAttack, StrongAttack, Counter, LinkAttack
+};
+
+
 public class Player : MonoBehaviour
 {
     #region PublicVariables
@@ -13,12 +18,12 @@ public class Player : MonoBehaviour
     #region PrivateVariables
     private int m_dir = 1;
     private float m_speed = 5.0f;
-    private float m_jumpPower = 5.0f;
+    private float m_jumpPower = 7.0f;
     private float m_weakAttackCoolTime = 0.4f;
     private float m_strongAttackCoolTime = 0.7f;
     private float m_counterCoolTime = 0.7f;
     private float m_hitCoolTime = 0.5f;
-    private float m_shieldTime = 1.0f;
+    private float m_shieldTime = 0.3f;
     private Color m_playerColor = new Color(1f,1f,1f);
 
     private bool m_isGround = true;
@@ -48,6 +53,21 @@ public class Player : MonoBehaviour
         if (m_canMove == false)
             return;
 
+        if(_dir == -1)
+        {
+            if(m_tutorialKeyInput[(int)TutorialInput.Left].isCheck() == false)
+            {
+                m_tutorialKeyInput[(int)TutorialInput.Left].Check();
+            }
+        }
+        else
+        {
+            if (m_tutorialKeyInput[(int)TutorialInput.Right].isCheck() == false)
+            {
+                m_tutorialKeyInput[(int)TutorialInput.Right].Check();
+            }
+        }
+
         transform.Translate(new Vector3(m_speed * _dir * Time.deltaTime, 0, 0));
         
         if(m_dir != _dir)
@@ -67,6 +87,11 @@ public class Player : MonoBehaviour
             m_rigidbody.AddForce(Vector3.up * m_jumpPower, ForceMode2D.Impulse);
 
             m_isGround = false;
+
+            if (m_tutorialKeyInput[(int)TutorialInput.Jump].isCheck() == false)
+            {
+                m_tutorialKeyInput[(int)TutorialInput.Jump].Check();
+            }
         }
     }
 
@@ -75,6 +100,15 @@ public class Player : MonoBehaviour
         m_animator.SetTrigger("WeakAttack");
 
         m_sword.WeakAttack(m_weakAttackCoolTime);
+
+        if (m_tutorialKeyInput[(int)TutorialInput.WeakAttack].isCheck() == false)
+        {
+            m_tutorialKeyInput[(int)TutorialInput.WeakAttack].Check();
+        }
+        if (m_tutorialKeyInput[(int)TutorialInput.LinkAttack].isCheck() == false)
+        {
+            m_tutorialKeyInput[(int)TutorialInput.LinkAttack].Check();
+        }
     }
 
     public void StrongAttack()
@@ -85,6 +119,12 @@ public class Player : MonoBehaviour
         m_canMove = false;
         //m_animator.SetBool("StrongAttack", true);
         m_animator.SetTrigger("StrongAttack");
+
+        if (m_tutorialKeyInput[(int)TutorialInput.StrongAttack].isCheck() == false)
+        {
+            m_tutorialKeyInput[(int)TutorialInput.StrongAttack].Check();
+        }
+
         Invoke("SetMovable", m_strongAttackCoolTime);
         
         m_sword.StrongAttack(m_strongAttackCoolTime);
@@ -97,6 +137,11 @@ public class Player : MonoBehaviour
 
         m_canMove = false;
         m_isCounter = true;
+
+        if (m_tutorialKeyInput[(int)TutorialInput.Counter].isCheck() == false)
+        {
+            m_tutorialKeyInput[(int)TutorialInput.Counter].Check();
+        }
 
         m_animator.SetTrigger("Counter");
         Invoke("SetMovable", m_counterCoolTime);
@@ -218,12 +263,16 @@ public class Player : MonoBehaviour
             }
             else
             {
+                if (m_isShield == false)
+                {
+                    WeakKnockBack(hitplayer.GetComponent<Player>().GetDirection());
+                }
                 Hit();
+                
                 CameraController.instance.AttackShake();
 
-                WeakKnockBack(hitplayer.GetComponent<Player>().GetDirection());
+                
             }
-            
         }
 
         if (collision.CompareTag("StrongAttack"))
