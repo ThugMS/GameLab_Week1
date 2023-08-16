@@ -46,7 +46,7 @@ public class TutorialRoom : MonoBehaviour
 		CameraController.instance.GoMainStage();
 		GameManager.instance.GameStart();
 		m_floor.SetActive(false);
-		m_stageTrigger.StageStart();
+		m_stageTrigger.StartStage();
     }
 	#endregion
 }

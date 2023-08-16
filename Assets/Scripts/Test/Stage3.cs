@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Stage3 : BaseStage
 {
+    
     #region PublicVariables
     #endregion
 
@@ -15,15 +16,26 @@ public class Stage3 : BaseStage
 
     #region PrivateMethod
 
-    public override void StageStart()
+    public override void StartStage()
     {
+        base.InitStage();
+        Platforms = new GameObject { name = "Platforms" };
+
         MakePlatform();
     }
 
     void MakePlatform()
     {
-        for (int i = 0; i < transform.childCount; i++)
-            transform.GetChild(i).gameObject.SetActive(true);
+        
+        GameObject prefab = Resources.Load<GameObject>("Prefabs/Stage3");
+        GameObject go = Instantiate(prefab);
+
+        //for (int i = 0; i < go.transform.childCount; i++)
+        //{
+        //    transform.GetChild(i).gameObject.SetActive(true);
+        //}
+
+        go.transform.SetParent(Platforms.transform);
     }
 
     #endregion

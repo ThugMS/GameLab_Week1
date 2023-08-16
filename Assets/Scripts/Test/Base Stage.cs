@@ -8,15 +8,26 @@ public abstract class BaseStage : MonoBehaviour
     #endregion
 
     #region PrivateVariables
+
+    protected GameObject Platforms;
+
     #endregion
 
     #region PublicMethod
 
-    public abstract void StageStart();
+    public abstract void StartStage();
 
     #endregion
 
     #region PrivateMethod
+
+    public void InitStage()
+    {
+        GameObject go = GameObject.Find("Platforms");
+
+        Destroy(go);
+    }
+
     #endregion
 
 
