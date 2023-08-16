@@ -6,11 +6,9 @@ public class Platform : MonoBehaviour
 {
     #region PublicVariables
 
-    [SerializeField]
-    public float m_delay;
+    [SerializeField] public float m_delay;
 
-    [SerializeField]
-    public float m_quakeRange;
+    [SerializeField] public float m_quakeRange;
 
     [SerializeField] public float m_quakeTime;
 
@@ -44,6 +42,8 @@ public class Platform : MonoBehaviour
 
     bool isQuake;
 
+    
+
     #endregion
     #region PublicMethod
     #endregion
@@ -51,7 +51,14 @@ public class Platform : MonoBehaviour
 
     private void Start()
     {
+        //GameObject shadow = Instantiate(Resources.Load<GameObject>("Prefabs/PlatformShadow"));
         
+        //Vector3 localScale = GetComponent<Transform>().lossyScale;
+        //shadow.transform.localScale = new Vector3(localScale.x + 0.1f, localScale.y + 0.1f, 1);
+        
+        //Vector3 position = GetComponent<Transform>().position;
+        //shadow.transform.position = new Vector3(position.x, position.y, position.z + 0.1f);
+
         gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
 
         switch (m_platformType)
@@ -98,6 +105,7 @@ public class Platform : MonoBehaviour
         yield return new WaitForSeconds(_lifeTime);
         isQuake = true;
 
+        yield return new WaitForSeconds(m_quakeTime);
         isQuake = false;
         gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         gameObject.GetComponent<Collider2D>().isTrigger = true;

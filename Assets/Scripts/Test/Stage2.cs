@@ -8,9 +8,6 @@ public class Stage2 : BaseStage
     #endregion
 
     #region PrivateVariables
-
-     [SerializeField] GameObject[] m_platforms;
-
     #endregion
 
     #region PublicMethod
@@ -20,16 +17,13 @@ public class Stage2 : BaseStage
 
     public override void StageStart()
     {
-
         MakePlatform();
     }
 
     void MakePlatform()
     {
-        foreach (GameObject platform in m_platforms)
-        {
-            platform.SetActive(true);
-        }
+        for (int i = 0; i < transform.childCount; i++)
+            transform.GetChild(i).gameObject.SetActive(true);
     }
 
     #endregion
