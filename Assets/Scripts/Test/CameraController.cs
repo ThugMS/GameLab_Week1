@@ -9,6 +9,7 @@ public class CameraController : MonoBehaviour
     public Camera main;
 	public CameraShaker shaker;
     #endregion
+
     #region PrivateVariables
     [SerializeField] private float m_camSpeed;
 
@@ -24,6 +25,7 @@ public class CameraController : MonoBehaviour
 	private const float ZOOM_MIN = 4f;
 	private const float ZOOM_MAX = 10f;
 	#endregion
+
 	#region PublicMethod
 	public void Awake()
 	{
@@ -62,6 +64,7 @@ public class CameraController : MonoBehaviour
 		shaker.SmashShake();
 	}
     #endregion
+
     #region PrivateMethod
     private void SetCameraState()
     {
