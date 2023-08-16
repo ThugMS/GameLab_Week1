@@ -34,7 +34,8 @@ public class GameManager : MonoBehaviour
 	public void GameEnd()
 	{
 		onGameEnd.Invoke();
-	}
+        onMainScreen.Invoke();
+    }
 
 	public void OnMainScreen()
 	{

@@ -735,6 +735,38 @@ PrefabInstance:
       propertyPath: m_stagePanel
       value: 
       objectReference: {fileID: 516526458}
+    - target: {fileID: 283123778184951160, guid: 98b9829bc1ea78b4cb90315f17a8e021, type: 3}
+      propertyPath: m_Name
+      value: MainMessage
+      objectReference: {fileID: 0}
+    - target: {fileID: 6272889527934717355, guid: 98b9829bc1ea78b4cb90315f17a8e021, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6272889527934717355, guid: 98b9829bc1ea78b4cb90315f17a8e021, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6272889527934717355, guid: 98b9829bc1ea78b4cb90315f17a8e021, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6272889527934717355, guid: 98b9829bc1ea78b4cb90315f17a8e021, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6272889527934717355, guid: 98b9829bc1ea78b4cb90315f17a8e021, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6272889527934717355, guid: 98b9829bc1ea78b4cb90315f17a8e021, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6272889527934717355, guid: 98b9829bc1ea78b4cb90315f17a8e021, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8245720743676752516, guid: 98b9829bc1ea78b4cb90315f17a8e021, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -783,9 +815,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainImage
       objectReference: {fileID: 0}
-    - target: {fileID: 8245720743676752519, guid: 98b9829bc1ea78b4cb90315f17a8e021, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 9003186858437265631, guid: 98b9829bc1ea78b4cb90315f17a8e021, type: 3}
+      propertyPath: m_text
+      value: Press Anykey
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003186858437265631, guid: 98b9829bc1ea78b4cb90315f17a8e021, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003186858437265631, guid: 98b9829bc1ea78b4cb90315f17a8e021, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98b9829bc1ea78b4cb90315f17a8e021, type: 3}
@@ -1390,6 +1430,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2077320718}
         m_TargetAssemblyTypeName: UIController, Assembly-CSharp
         m_MethodName: HideUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1905695450}
+        m_TargetAssemblyTypeName: StageMenu, Assembly-CSharp
+        m_MethodName: SpawnInTutorial
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
