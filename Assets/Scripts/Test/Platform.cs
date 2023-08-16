@@ -13,6 +13,7 @@ public class Platform : MonoBehaviour
     [SerializeField] public float m_quakeTime;
 
     #endregion
+
     #region PrivateVariables
 
     enum PlatformType
@@ -41,20 +42,14 @@ public class Platform : MonoBehaviour
     float m_originSizeY;
 
     #endregion
+
     #region PublicMethod
     #endregion
+
     #region PrivateMethod
 
     private void Start()
     {
-        //GameObject shadow = Instantiate(Resources.Load<GameObject>("Prefabs/PlatformShadow"));
-        
-        //Vector3 localScale = GetComponent<Transform>().lossyScale;
-        //shadow.transform.localScale = new Vector3(localScale.x + 0.1f, localScale.y + 0.1f, 1);
-        
-        //Vector3 position = GetComponent<Transform>().position;
-        //shadow.transform.position = new Vector3(position.x, position.y, position.z + 0.1f);
-
         gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
 
         m_originSizeY = transform.localScale.y;
@@ -129,7 +124,6 @@ public class Platform : MonoBehaviour
 
         transform.position += new Vector3(Random.Range(m_quakeRange * -1, m_quakeRange), Random.Range(m_quakeRange * -1, m_quakeRange), 0) * Time.deltaTime;
     }
-
 
     private void OnTriggerEnter(Collider other)
     {

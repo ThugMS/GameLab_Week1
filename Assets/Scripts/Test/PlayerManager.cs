@@ -5,11 +5,15 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     #region PublicVariables
+    public static PlayerManager instance;
+
+    public GameObject m_player1;
+    public GameObject m_player2;
     #endregion
 
     #region PrivateVariables
-    [SerializeField] private GameObject m_player1;
-    [SerializeField] private GameObject m_player2;
+
+
     [SerializeField] private List<TutorialButton> m_keyName = new List<TutorialButton>();
 
     private Player m_player1Controller;
@@ -17,6 +21,11 @@ public class PlayerManager : MonoBehaviour
     #endregion
 
     #region PublicMethod
+    public void Awake()
+    {
+        if (instance == null)
+            instance = this;
+    }
     void Start()
     {   
         m_player1Controller = m_player1.GetComponent<Player>();
