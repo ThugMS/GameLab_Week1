@@ -33,6 +33,9 @@ public class Stage1 : MonoBehaviour
     [SerializeField]
     float m_quakeRange;
 
+    [SerializeField]
+    float m_quakeTime;
+
     GameObject Platforms;
 
     #endregion
@@ -60,8 +63,6 @@ public class Stage1 : MonoBehaviour
 
     void MakePlatform(Direct _direct, Vector3 _startPoint)
     {
-
-
         float _time = m_time;
 
         if (_direct == Direct.Left)
@@ -91,18 +92,20 @@ public class Stage1 : MonoBehaviour
 
             go.GetComponent<Transform>().localScale = m_platformSize;
 
+            Vector3 offset = new Vector3(go.GetComponent<Transform>().localScale.x / 2, 0, 0);
             if (_direct == Direct.Right)
             {
-                go.GetComponent<Transform>().position = _startPoint;
+                go.GetComponent<Transform>().position = _startPoint + offset;
                 _startPoint.x += m_platformSize.x;
             }
             else if (_direct == Direct.Left)
             {
-                go.GetComponent<Transform>().position = _startPoint;
+                go.GetComponent<Transform>().position = _startPoint - offset;
                 _startPoint.x -= m_platformSize.x;
             }
 
             go.GetComponent<Platform>().m_quakeRange = m_quakeRange;
+            go.GetComponent<Platform>().m_quakeTime = m_quakeTime;
 
             go.transform.SetParent(Platforms.transform); 
 

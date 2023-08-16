@@ -44,9 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eee6a0c95b24dd04cb21220901989fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_startPoint: {x: 5, y: -3, z: 0}
-  m_platformSize: {x: 0.5, y: 1, z: 1}
-  m_time: 30
-  m_interval: 1
-  m_size: 30
-  m_quakeRange: 2
+  m_startPoint: {x: 4, y: -3, z: 0}
+  m_platformSize: {x: 4, y: 2, z: 1}
+  m_time: 60
+  m_interval: 10
+  m_size: 6
+  m_quakeRange: 4
+  m_quakeTime: 5
