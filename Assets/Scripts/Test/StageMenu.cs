@@ -31,6 +31,7 @@ public class StageMenu : MonoBehaviour
     {
         GameManager.instance.TutorialStart();
         SpawnInTutorial();
+        PlayerManager.instance.InitLife();
         HideStagePanel();
         CallHideMainScreen();
         RunTimeScale();
@@ -41,6 +42,7 @@ public class StageMenu : MonoBehaviour
         m_stage1.GetComponent<Stage1>().StartStage();
         SpawnInStage();
         GameManager.instance.GameStart();
+        PlayerManager.instance.InitLife();
         HideStagePanel();
         CallHideMainScreen();
         RunTimeScale();
@@ -51,6 +53,7 @@ public class StageMenu : MonoBehaviour
         m_stage2.GetComponent<Stage2>().StartStage();
         SpawnInStage();
         GameManager.instance.GameStart();
+        PlayerManager.instance.InitLife();
         HideStagePanel();
         CallHideMainScreen();
         RunTimeScale();
@@ -61,6 +64,7 @@ public class StageMenu : MonoBehaviour
         m_stage3.GetComponent<Stage3>().StartStage();
         SpawnInStage();
         GameManager.instance.GameStart();
+        PlayerManager.instance.InitLife();
         HideStagePanel();
         CallHideMainScreen();
         RunTimeScale();
