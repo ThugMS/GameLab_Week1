@@ -32,6 +32,7 @@ public class StageMenu : MonoBehaviour
         GameManager.instance.TutorialStart();
         SpawnInTutorial();
         PlayerManager.instance.InitLife();
+        PlayerManager.instance.isTutorialPlayed = true;
         HideStagePanel();
         CallHideMainScreen();
         RunTimeScale();
