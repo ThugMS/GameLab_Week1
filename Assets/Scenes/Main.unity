@@ -1109,6 +1109,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e24d6bdc37b75419bb44a4038fadba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1039840323 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1648901369, guid: 98b9829bc1ea78b4cb90315f17a8e021, type: 3}
+  m_PrefabInstance: {fileID: 882665877}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be35cc5f3dae19244ae6d1bd40708e6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1199858080 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5864676508521073282, guid: c85fbcd638189e840bac9d440a1e2cb0, type: 3}
@@ -1367,10 +1378,34 @@ MonoBehaviour:
         m_CallState: 2
   onMainScreen:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1039840323}
+        m_TargetAssemblyTypeName: MainScreen, Assembly-CSharp
+        m_MethodName: ShowMainScreen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   offMainScreen:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1039840323}
+        m_TargetAssemblyTypeName: MainScreen, Assembly-CSharp
+        m_MethodName: HideMainScreen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1568417045
 Transform:
   m_ObjectHideFlags: 0
