@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    #region PublicVariables
+	#region PublicVariables
+	public static CameraController instance;
     public Camera main;
 	public CameraShaker shaker;
     #endregion
+
     #region PrivateVariables
     [SerializeField] private float m_camSpeed;
 
@@ -23,7 +25,15 @@ public class CameraController : MonoBehaviour
 	private const float ZOOM_MIN = 4f;
 	private const float ZOOM_MAX = 10f;
 	#endregion
+
 	#region PublicMethod
+	public void Awake()
+	{
+		if (instance == null)
+		{
+			instance = this;
+		}
+	}
 	public void Start()
 	{
 		shaker.main = this.main;
@@ -54,6 +64,7 @@ public class CameraController : MonoBehaviour
 		shaker.SmashShake();
 	}
     #endregion
+
     #region PrivateMethod
     private void SetCameraState()
     {
