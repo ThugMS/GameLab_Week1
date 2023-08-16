@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3295591099227429491}
   - component: {fileID: 3295591099227429500}
   - component: {fileID: 3295591099227429488}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShortenPlatform
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5575012825696557382}
   - component: {fileID: 3973184607860632442}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}

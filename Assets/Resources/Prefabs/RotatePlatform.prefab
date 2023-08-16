@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3946418056727834762}
   - component: {fileID: 5653823894864850811}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 5751938827047494151}
   - component: {fileID: 5751938827047494152}
   - component: {fileID: 5751938827047494148}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RotatePlatform
   m_TagString: Ground
   m_Icon: {fileID: 0}

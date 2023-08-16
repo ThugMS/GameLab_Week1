@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2462907986119567816}
   - component: {fileID: 2462907986119567815}
   - component: {fileID: 2462907986119567819}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DropPlatform
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1541863676342482385}
   - component: {fileID: 1402363189854419240}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
