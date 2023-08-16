@@ -54,7 +54,7 @@ public class Indicator : MonoBehaviour
 
         if (-m_defaultAngle <= angle && angle <= m_defaultAngle)
         {
-            Debug.Log("down");
+            //Debug.Log("down");
 
             m_isActive = centerPoint.y < -0.5f ? true : false;
 
@@ -65,7 +65,7 @@ public class Indicator : MonoBehaviour
         }
         else if (m_defaultAngle <= angle && angle <= 180 - m_defaultAngle)
         {
-            Debug.Log("right");
+            //Debug.Log("right");
 
             m_isActive = centerPoint.x > 0.5f ? true : false;
 
@@ -76,7 +76,7 @@ public class Indicator : MonoBehaviour
         }
         else if (-180 + m_defaultAngle <= angle && angle <= -m_defaultAngle)
         {
-            Debug.Log("left");
+            //Debug.Log("left");
 
             m_isActive = centerPoint.x < -0.5f ? true : false;
 
@@ -87,7 +87,7 @@ public class Indicator : MonoBehaviour
         }
         else if (-180 <= angle && angle <= -180 + m_defaultAngle || 180 - m_defaultAngle <= angle && angle <= 180)
         {
-            Debug.Log("up");
+            //Debug.Log("up");
 
             m_isActive = centerPoint.y > 0.5f ? true : false;
 
