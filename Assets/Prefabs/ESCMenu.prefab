@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6418065901734400756
+--- !u!1 &8623923963947845874
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,46 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6418065901734400762}
-  - component: {fileID: 6418065901734400761}
+  - component: {fileID: 8623923963947845868}
+  - component: {fileID: 8623923963947845869}
   m_Layer: 0
-  m_Name: Stage1
+  m_Name: ESCMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6418065901734400762
+--- !u!4 &8623923963947845868
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6418065901734400756}
+  m_GameObject: {fileID: 8623923963947845874}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -6.3994565, y: 32.612186, z: -10.007047}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6418065901734400761
+--- !u!114 &8623923963947845869
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6418065901734400756}
+  m_GameObject: {fileID: 8623923963947845874}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eee6a0c95b24dd04cb21220901989fba, type: 3}
+  m_Script: {fileID: 11500000, guid: e72089bab1fd32f43ac0f3a87b3348d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_startPoint: {x: 4, y: -3, z: 0}
-  m_platformSize: {x: 4, y: 2, z: 1}
-  m_time: 60
-  m_interval: 7
-  m_size: 6
-  m_quakeRange: 4
-  m_quakeTime: 5
+  m_escPanel: {fileID: 0}
