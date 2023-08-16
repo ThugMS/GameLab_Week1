@@ -12,10 +12,11 @@ public class PlayerSword : MonoBehaviour
     private bool isHit = false;
     private BoxCollider2D m_boxCollider;
     private Vector2 m_colliderOffset = new Vector2(0, 0.2865495f);
-    private Vector2 m_colliderWeakAttackOffeset = new Vector2(0, 0.6f);
+    private Vector2 m_colliderWeakAttackOffeset = new Vector2(0, 0.1949511f);
     private Vector2 m_colliderStrongAttackOffeset = new Vector2(0, 0.1436397f);
 
     private Vector2 m_colliderSize = new Vector2(1, 0.6323969f);
+    private Vector2 m_colliderWeakAttackSize = new Vector2(1, 1.140774f);
     private Vector2 m_colliderStrongAttackSize = new Vector2(2.18f, 1.506497f);
     #endregion
 
@@ -63,7 +64,8 @@ public class PlayerSword : MonoBehaviour
         }
 
         transform.tag = "WeakAttack";
-        //m_boxCollider.offset = m_colliderWeakAttackOffeset;
+        m_boxCollider.offset = m_colliderWeakAttackOffeset;
+        m_boxCollider.size = m_colliderWeakAttackSize;
     }
 
     private void SetSwordTagStrongAttack()
