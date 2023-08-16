@@ -27,6 +27,7 @@ public class StageMenu : MonoBehaviour
 
     public void ChooseTutorial()
     {
+        GameManager.instance.TutorialStart();
         HideStagePanel();
     }
 
@@ -34,7 +35,7 @@ public class StageMenu : MonoBehaviour
     {
         m_stage1.GetComponent<Stage1>().StageStart();
         SpawnPlayers();
-
+        GameManager.instance.GameStart();
         HideStagePanel();
     }
 
@@ -42,7 +43,7 @@ public class StageMenu : MonoBehaviour
     {
         m_stage2.GetComponent<Stage2>().StageStart();
         SpawnPlayers();
-
+        GameManager.instance.GameStart();
         HideStagePanel();
     }
 
@@ -50,7 +51,7 @@ public class StageMenu : MonoBehaviour
     {
         m_stage3.GetComponent<Stage3>().StageStart();
         SpawnPlayers();
-
+        GameManager.instance.GameStart();
         HideStagePanel();
     }
 
