@@ -61,21 +61,24 @@ public class Indicator : MonoBehaviour
             m_posY = m_cameraBound;
             m_posX = (carmeraToTarget.x * m_posY) / carmeraToTarget.y;
 
-            //if (m_cameraBound <= carmeraToTarget.x)
-            //{
-            //    _indicator.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(1f, 1f, 0));
-            //    _indicator.transform.position += new Vector3(-1, -1, 0) * m_offset;
-            //}
+            if (m_cameraBound <= carmeraToTarget.x)
+            {
+                Vector3 dest = new Vector3(1f, 1f, 0);
+                Vector3 curr = new Vector3(m_posX + m_cameraBound, m_posY + m_cameraBound, 0);
+
+                _indicator.transform.position = Camera.main.ViewportToWorldPoint(Vector3.Lerp(curr, dest, 10));
+                _indicator.transform.position += new Vector3(-1, -1, 0) * m_offset;
+            }
             //else if (-m_cameraBound >= carmeraToTarget.x)
             //{
             //    _indicator.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(-1f, 1f, 0));
             //    _indicator.transform.position += new Vector3(1, -1, 0) * m_offset;
             //}
-            //else
-            //{
+            else
+            {
                 _indicator.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(m_posX + m_cameraBound, m_posY + m_cameraBound, 0));
                 _indicator.transform.position += Vector3.down * m_offset;
-            //}
+            }
 
             _indicator.transform.position = new Vector3(_indicator.transform.position.x, _indicator.transform.position.y, 0);
         }
