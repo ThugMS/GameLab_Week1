@@ -38,7 +38,10 @@ public class UIHeartContainer : MonoBehaviour
 	#region PrivateMethod
 	private void HeartCountOut()
 	{
-		Debug.Log("Heart Out!");
-	}
+		GameManager.instance.GameEnd();
+		Destroy(GameObject.Find("Platforms"));
+
+
+    }
 	#endregion
 }

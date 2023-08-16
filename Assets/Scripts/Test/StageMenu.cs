@@ -66,7 +66,7 @@ public class StageMenu : MonoBehaviour
         RunTimeScale();
     }
 
-    private void SpawnInTutorial()
+    public void SpawnInTutorial()
     {
         PlayerManager.instance.m_player1.transform.position = m_tutorialPos1;
         PlayerManager.instance.m_player2.transform.position = m_tutorialPos2;
